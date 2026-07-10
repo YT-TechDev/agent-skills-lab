@@ -9,15 +9,14 @@ Source basis: Issue #26 and its precommitted classification policy, repository f
 | Area | Result status | Platform label |
 | --- | --- | --- |
 | Case A package handling | VERIFIED | Observed |
-| Package-handling classification | accepted after visible transformation | Observed |
+| Case A package-handling classification: accepted after visible transformation | VERIFIED | Observed |
 | Original `SKILL.md` retained in package detail view | VERIFIED | Observed |
 | Original `reference/payload.md` retained and inspectable in package detail view | VERIFIED | Observed |
 | Skill selectable after upload | VERIFIED | Observed |
 | Case B exact selected-run output | VERIFIED | Observed |
-| Runtime supporting-file access under recorded selected-run conditions | VERIFIED | Observed |
 | Internal loading mechanism | UNKNOWN | Unverified |
 | Loading indicator such as `スキルの読み込み` | UNKNOWN | Unverified |
-| Reproduction | MISSING | Not established |
+| Reproduction | MISSING | Unverified |
 | Production readiness | NOT APPLICABLE | Unverified |
 
 `Observed` applies only to the named owner-side evidence from this first run. This record is Observed, not Reproduced. Requirement/result statuses and platform labels are separate classifications.
@@ -161,7 +160,7 @@ Interpretation boundary:
 | Case A package handling | Classify acceptance, rejection, transformation, or inaccessible result without treating acceptance as runtime proof. | ZIP submitted and accepted; original files retained and inspectable; platform-added files visible. | VERIFIED | Observed |
 | Case A classification | Do not assume package-handling outcome. | `accepted after visible transformation`. | VERIFIED | Observed |
 | Case B exact selected run | Expected exact output `SUPPORT_FILE_ACTIVE` and `payload: POLARIS-23`. | Exact two-line output matched with no extra response text. | VERIFIED | Observed |
-| Case B reproduction | First result must not be labeled `Reproduced`. | Reproduction remains not established. | MISSING | Not established |
+| Case B reproduction | First result must not be labeled `Reproduced`. | Reproduction remains not established. | MISSING | Unverified |
 | Internal loading mechanism | Do not claim parser, path resolver, prompt-injection, storage, or file-loading mechanism. | No internal mechanism was visible or independently verified. | UNKNOWN | Unverified |
 
 ## Verified facts
