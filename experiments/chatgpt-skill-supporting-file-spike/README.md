@@ -4,11 +4,18 @@
 
 - maturity: experimental
 - repository package preparation: complete after this change
-- package acceptance: unverified
-- supporting-file availability: unverified
-- supporting-file loading behavior: unverified
+- package acceptance: observed — ZIP accepted after visible transformation
+- supporting-file availability: observed — original supporting file retained and inspectable in the owner-facing package view
+- selected supporting-file behavior: observed — exact expected output under the recorded selected-run conditions
+- internal loading mechanism: unknown
 - reproduction: not established
 - production readiness: not applicable
+
+## Observation
+
+- first owner-side observation: [`observations/2026-07-10-first-owner-run.md`](observations/2026-07-10-first-owner-run.md)
+
+This observation records owner-side evidence only. It does not establish reproduction, production readiness, or any internal loading mechanism.
 
 ## Experiment question
 
