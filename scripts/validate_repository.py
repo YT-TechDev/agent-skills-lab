@@ -30,10 +30,12 @@ CREDENTIAL_FILENAMES = {
     ".env", "id_rsa", "id_ed25519", "credentials.json", "service-account.json"
 }
 CREDENTIAL_SUFFIXES = {".pem", ".key", ".p12"}
-CONFLICT_RE = re.compile(r"^(<<<<<<<|=======|>>>>>>>)")
 INLINE_LINK_RE = re.compile(r"(?<!!)\[[^\]\n]+\]\(([^)\s]+)(?:\s+\"[^\"]*\")?\)")
 CODE_SPAN_RE = re.compile(r"`([^`\n]+)`")
 URL_RE = re.compile(r"^[a-zA-Z][a-zA-Z0-9+.-]*:")
+PACKAGE_REF_SUFFIXES = {
+    ".md", ".txt", ".json", ".yaml", ".yml", ".toml", ".csv", ".tsv", ".jsonl", ".xml"
+}
 AI_URL_PATTERNS = [
     ("ChatGPT conversation/share URL", re.compile(r"https://chatgpt\.com/(?:c|share)/[^\s)\]>\"']+")),
     ("ChatGPT Codex task URL", re.compile(r"https://chatgpt\.com/(?:codex|tasks?)/[^\s)\]>\"']+")),
@@ -73,11 +75,18 @@ def read_text(path: Path, root: Path, errors: list[str]) -> str | None:
 
 
 def check_text_hygiene(path: Path, root: Path, text: str, errors: list[str]) -> None:
+    in_conflict = False
     for line_no, line in enumerate(text.splitlines(), start=1):
         body = line[:-1] if line.endswith("\r") else line
         if body.endswith((" ", "\t")):
             errors.append(f"ERROR {rel(path, root)}: trailing whitespace on line {line_no}")
-        if CONFLICT_RE.match(body):
+        if body.startswith("<<<<<<<"):
+            in_conflict = True
+            errors.append(f"ERROR {rel(path, root)}: unresolved merge-conflict marker on line {line_no}")
+        elif body.startswith("=======") and in_conflict:
+            errors.append(f"ERROR {rel(path, root)}: unresolved merge-conflict marker on line {line_no}")
+        elif body.startswith(">>>>>>>"):
+            in_conflict = False
             errors.append(f"ERROR {rel(path, root)}: unresolved merge-conflict marker on line {line_no}")
 
 
@@ -97,6 +106,7 @@ def without_fenced_code(text: str) -> str:
 
 def check_markdown_links(path: Path, root: Path, text: str, errors: list[str]) -> int:
     count = 0
+    root = root.resolve()
     for match in INLINE_LINK_RE.finditer(without_fenced_code(text)):
         target = match.group(1).strip()
         split = urlsplit(target)
@@ -107,10 +117,19 @@ def check_markdown_links(path: Path, root: Path, text: str, errors: list[str]) -
         cleaned = unquote(split.path)
         if not cleaned:
             continue
+        if Path(cleaned).is_absolute():
+            count += 1
+            errors.append(f"ERROR {rel(path, root)}: Markdown link target escapes repository root: {target}")
+            continue
         resolved = (path.parent / cleaned).resolve()
         count += 1
-        if not resolved.exists():
-            errors.append(f"ERROR {rel(path, root)}: Markdown link target does not exist: {target}")
+        try:
+            resolved.relative_to(root)
+        except ValueError:
+            errors.append(f"ERROR {rel(path, root)}: Markdown link target escapes repository root: {target}")
+        else:
+            if not resolved.exists():
+                errors.append(f"ERROR {rel(path, root)}: Markdown link target does not exist: {target}")
     return count
 
 
@@ -149,10 +168,16 @@ def read_frontmatter(skill: Path, root: Path, text: str, errors: list[str]) -> d
 def is_package_ref(span: str) -> bool:
     if any(ch.isspace() for ch in span) or URL_RE.match(span):
         return False
-    if span.startswith(("/", "#", "<", "{", "$")) or span in {"...", "???"}:
+    if span.startswith(("/", "#", "<", "{", "$")) or span in {"...", "???", "---"}:
+        return False
+    if any(marker in span for marker in ("*", "[", "]", "(", ")")):
         return False
     path = Path(span)
-    return not path.is_absolute() and path.suffix != "" and any(part == ".." or part for part in path.parts)
+    return (
+        not path.is_absolute()
+        and path.suffix.lower() in PACKAGE_REF_SUFFIXES
+        and any(part == ".." or part for part in path.parts)
+    )
 
 
 def check_package(package: Path, root: Path, errors: list[str]) -> int:
