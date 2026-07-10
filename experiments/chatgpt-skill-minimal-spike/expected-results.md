@@ -6,24 +6,53 @@ These expectations are recorded before owner-side testing. All platform behavior
 
 Purpose:
 
-Test whether the platform accepts or exposes the hypothesized package.
+Test whether the platform accepts, rejects, exposes, or transforms the hypothesized package.
 
-Expected platform result:
+Prompt or test input:
 
-- acceptance or rejection should be observable through the supported workflow
-- no specific acceptance outcome is assumed
+The exact reviewed package from the identified commit.
 
-Evidence status:
+Expected platform behavior:
+
+- an acceptance, rejection, transformation, or inaccessible-workflow result should be recordable
+- no particular acceptance outcome is assumed
+
+Expected Skill output:
+
+NOT APPLICABLE. This case evaluates package handling rather than Skill response output.
+
+Evidence needed:
+
+- exact tested commit
+- exact package contents or hash where practical
+- product surface
+- dated owner-facing acceptance, rejection, transformation, or inaccessible-workflow evidence
+- sanitized screenshot or written observation where safe
+
+What cannot be concluded from output alone:
+
+- acceptance does not prove invocation
+- rejection does not automatically prove the Skill instructions are invalid
+- repository presence does not prove platform availability
+
+Current evidence classification:
 
 Unverified
 
-Package acceptance alone does not prove correct invocation.
-
 ## Case B: Explicit token invocation
 
-Prompt:
+Purpose:
+
+Test deterministic token-preserving behavior during an explicit owner-run invocation.
+
+Prompt or test input:
 
 Run the minimal behavior spike with token ORBIT-7.
+
+Expected platform behavior:
+
+- the owner explicitly selects or invokes the experiment through the tested workflow
+- visible invocation evidence should be recorded where the platform provides it
 
 Expected Skill output:
 
@@ -32,21 +61,37 @@ SPIKE_ACTIVE
 token: ORBIT-7
 ```
 
-Expected platform behavior:
+Evidence needed:
 
-- explicit owner-selected use or other visible invocation evidence should be recorded separately when available
+- exact prompt
+- exact output
+- tested commit and package contents
+- date and environment
+- visible Skill selection or invocation evidence where available
 
-Evidence status:
+What cannot be concluded from output alone:
+
+- matching text alone does not prove host-platform Skill invocation
+- one successful run does not establish reproduction
+
+Current evidence classification:
 
 Unverified
 
-Matching output alone does not prove platform invocation.
-
 ## Case C: Missing token
 
-Prompt:
+Purpose:
+
+Test deterministic missing-input behavior during an explicit owner-run invocation without a token.
+
+Prompt or test input:
 
 Run the minimal behavior spike.
+
+Expected platform behavior:
+
+- the same explicit owner-selected experiment workflow is used without supplying a token
+- visible invocation evidence should be recorded where available
 
 Expected Skill output:
 
@@ -54,26 +99,59 @@ Expected Skill output:
 SPIKE_INPUT_REQUIRED
 ```
 
-Evidence status:
+Evidence needed:
+
+- exact prompt
+- exact output
+- tested commit
+- date and environment
+- invocation evidence where available
+
+What cannot be concluded from output alone:
+
+- matching output alone does not prove platform invocation
+- failure to return the marker does not by itself identify whether the package, workflow, platform, or instruction interpretation failed
+
+Current evidence classification:
 
 Unverified
 
 ## Case D: Non-trigger request
 
-Prompt:
+Purpose:
+
+Test marker suppression for an unrelated request.
+
+Prompt or test input:
 
 Explain what a reusable agent Skill is.
 
-Expected output constraint:
+Expected platform behavior:
 
-- output must not contain SPIKE_ACTIVE
-- output must not contain SPIKE_INPUT_REQUIRED
+- no experiment-specific marker should appear for this unrelated request
+- do not assume the platform did or did not load, inspect, or consider the Skill
 
-Evidence status:
+Expected Skill output or output constraint:
+
+- must not contain SPIKE_ACTIVE
+- must not contain SPIKE_INPUT_REQUIRED
+
+Evidence needed:
+
+- exact prompt
+- full relevant output
+- tested commit
+- date and environment
+- any available platform evidence concerning Skill selection or invocation
+
+What cannot be concluded from output alone:
+
+- marker absence does not prove that the Skill was not loaded or considered
+- a normal answer does not by itself prove correct non-trigger routing
+
+Current evidence classification:
 
 Unverified
-
-Marker absence does not by itself prove that the platform did not load or consider the Skill.
 
 ## Expected discrepancy categories
 

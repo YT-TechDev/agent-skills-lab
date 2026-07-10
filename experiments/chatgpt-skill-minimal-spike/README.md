@@ -67,6 +67,21 @@ The owner-run test should use:
 
 Do not include private session links.
 
+## Safety and privacy constraints
+
+Owner-side testing must:
+
+- not include secrets or credentials
+- not include personal information
+- not use private repository content
+- not store private URLs
+- not store AI conversation or session-sharing URLs
+- use only a synthetic token such as `ORBIT-7`
+- sanitize screenshots and notes
+- capture only the minimum UI evidence necessary
+- avoid copying unrelated conversation content
+- stop if evidence cannot be recorded safely
+
 ## Manual test procedure
 
 These steps describe a later owner-run test. They were not run in this repository change.
