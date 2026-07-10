@@ -4,18 +4,18 @@
 
 - maturity: experimental
 - repository package preparation: complete after this change
-- package acceptance: observed — ZIP accepted after visible transformation
-- supporting-file availability: observed — original supporting file retained and inspectable in the owner-facing package view
-- selected supporting-file behavior: observed — exact expected output under the recorded selected-run conditions
+- package acceptance: observed — ZIP accepted after visible transformation in the first owner-side run
+- supporting-file availability: observed — original supporting file retained and inspectable in the package detail view during the first owner-side run
+- selected supporting-file behavior: reproduced — exact output repeated under materially comparable selected-run conditions
 - internal loading mechanism: unknown
-- reproduction: not established
 - production readiness: not applicable
 
 ## Observation
 
 - first owner-side observation: [`observations/2026-07-10-first-owner-run.md`](observations/2026-07-10-first-owner-run.md)
+- controlled reproduction: [`observations/2026-07-10-controlled-reproduction.md`](observations/2026-07-10-controlled-reproduction.md)
 
-This observation records owner-side evidence only. It does not establish reproduction, production readiness, or any internal loading mechanism.
+These observations record owner-side evidence only. The controlled reproduction record classifies only the exact explicitly selected output behavior as reproduced under the recorded materially comparable conditions. Package acceptance and package-detail file retention remain scoped to the first owner-side observation. The records do not establish production readiness, broad ChatGPT Skill support, unselected invocation behavior, behavior in other environments, or any internal loading mechanism.
 
 ## Experiment question
 
