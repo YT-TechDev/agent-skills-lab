@@ -8,11 +8,11 @@ Source basis: GitHub Issue #28 and its precommitted classification policy, the e
 
 | Area | Result status | Platform label |
 | --- | --- | --- |
-| Explicit Skill selection under recorded conditions | VERIFIED | Reproduced |
-| Exact prompt behavior | VERIFIED | Reproduced |
+| Pre-send explicit Skill selection and visible pill | VERIFIED | Observed |
+| Exact prompt supplied | VERIFIED | Observed |
 | Exact deterministic two-line selected output | VERIFIED | Reproduced |
 | Absence of heading, explanation, code fence, prefix, suffix, warning, fallback, or visible error | VERIFIED | Reproduced |
-| Owner-confirmed artifact continuity after the first run | VERIFIED | Observed |
+| Owner confirmation of no reupload, reinstall, edit, rename, or replacement | VERIFIED | Unverified |
 | Package acceptance | NOT APPLICABLE | Unverified |
 | Package-detail supporting-file retention | NOT APPLICABLE | Unverified |
 | Internal parser behavior | UNKNOWN | Unverified |
@@ -25,7 +25,7 @@ Source basis: GitHub Issue #28 and its precommitted classification policy, the e
 | Response-duration UI | UNKNOWN | Unverified |
 | Production readiness | NOT APPLICABLE | Unverified |
 
-`Reproduced` applies only to the exact explicitly selected output behavior under the recorded materially comparable conditions. Requirement/result statuses and platform labels are separate classifications.
+`Reproduced` applies only to the exact deterministic selected output and the absence of additional response text, warning, fallback, or visible error under the recorded materially comparable conditions. Setup and comparability facts are classified as `Observed`, not `Reproduced`. Requirement/result statuses and platform labels are separate classifications.
 
 ## Tested artifact and first-observation identity
 
@@ -112,9 +112,10 @@ Output evidence:
 
 | Compared item | First owner-side observation | Controlled repetition | Result status | Platform label |
 | --- | --- | --- | --- | --- |
-| Installed Skill name | `supporting-file-loading-spike` | `supporting-file-loading-spike` | VERIFIED | Reproduced |
-| Prompt | `Run the supporting-file loading spike.` | `Run the supporting-file loading spike.` | VERIFIED | Reproduced |
-| Prompt excludes success marker and payload | Excluded `SUPPORT_FILE_ACTIVE` and `POLARIS-23` | Excluded `SUPPORT_FILE_ACTIVE` and `POLARIS-23` | VERIFIED | Reproduced |
+| Installed Skill name | `supporting-file-loading-spike` | `supporting-file-loading-spike` | VERIFIED | Observed |
+| Pre-send explicit Skill selection and visible pill | Selected Skill pill visibly present before sending | Selected Skill pill visibly present before sending | VERIFIED | Observed |
+| Prompt | `Run the supporting-file loading spike.` | `Run the supporting-file loading spike.` | VERIFIED | Observed |
+| Prompt excludes success marker and payload | Excluded `SUPPORT_FILE_ACTIVE` and `POLARIS-23` | Excluded `SUPPORT_FILE_ACTIVE` and `POLARIS-23` | VERIFIED | Observed |
 | Exact output | `SUPPORT_FILE_ACTIVE`<br>`payload: POLARIS-23` | `SUPPORT_FILE_ACTIVE`<br>`payload: POLARIS-23` | VERIFIED | Reproduced |
 | Extra response text | None recorded | None recorded | VERIFIED | Reproduced |
 | Loading indicator such as `スキルの読み込み` | Not captured; `UNKNOWN` | Not captured; `UNKNOWN` | UNKNOWN | Unverified |
@@ -125,14 +126,12 @@ Output evidence:
 
 ## Reproduced visible behaviors
 
-The following visible behaviors are classified as `VERIFIED` with platform label `Reproduced`:
+The following visible selected-output behaviors are classified as `VERIFIED` with platform label `Reproduced`:
 
-- explicit Skill selection under the recorded conditions
-- exact prompt behavior
 - exact deterministic two-line output
 - absence of extra response text, warning, fallback, or visible error
 
-The repeated output remains evidence consistent with supporting-file access. Internal loading mechanics remain `UNKNOWN`.
+The materially comparable setup conditions remain documented as evidence supporting the reproduction decision, but they are classified as `Observed`, not `Reproduced`. The repeated output remains evidence consistent with supporting-file access. Internal loading mechanics remain `UNKNOWN`.
 
 ## Verified facts
 
@@ -184,6 +183,6 @@ These are inferences from the bounded evidence. They do not identify or prove in
 
 ## Conclusion
 
-For GitHub Issue #28, the exact explicitly selected supporting-file output behavior repeated under the recorded materially comparable conditions. The visible selected-output behavior is classified as requirement/result status `VERIFIED` and platform label `Reproduced`.
+For GitHub Issue #28, the exact deterministic two-line selected output and absence of additional response text, warning, fallback, or visible error repeated under the recorded materially comparable conditions. Those selected-output behaviors are classified as requirement/result status `VERIFIED` and platform label `Reproduced`. Setup and comparability facts, including explicit Skill selection, visible pre-send Skill pill, installed Skill name, exact prompt supplied, and prompt exclusion of marker and payload, are classified as `VERIFIED` / `Observed`.
 
 This conclusion is limited to the explicitly selected run and exact two-line output. Package acceptance and package-detail file retention remain scoped to the earlier first owner-side observation. The repeated output remains evidence consistent with supporting-file access, while internal parser behavior, relative-path resolution, storage, prompt construction, file-loading implementation, and runtime package extraction remain `UNKNOWN`.
