@@ -140,6 +140,14 @@ This document defines durable design principles for reusable AI agent Skills dev
 
 **Practical consequence:** Standard Review may recommend escalation when changes involve security-sensitive behavior, privacy boundaries, architecture boundaries, native code, destructive data operations, dependency risk, or release-critical behavior, without defining the complete Standard Review workflow or rubric.
 
+### 18. Use English for Skill sources and adapt user-facing prose carefully
+
+**Rule:** Reusable Skill source and repository artifacts use English by default. User-facing explanatory prose should follow the user's input language when the language can be determined reliably, but language adaptation must remain compatible with the Skill's job and output contract. English is the fallback when language detection or adaptation is uncertain. An explicit user instruction for a particular response language takes precedence when it is compatible with the Skill's job, required literals, evidence fidelity, identifiers, and stronger Project or repository requirements.
+
+**Why it matters:** Repository authoring language, runtime response language, and platform-observed language behavior are different concerns. English source artifacts support maintainability and reuse across projects. User-facing response language is a runtime presentation decision governed by user input, explicit instructions, and the output contract. Platform-observed language behavior is dated evidence about what the host platform produced in a specific run; it is not repository policy, does not prove why a language was selected, and must remain evidence-classified and version-sensitive. This repository policy is intentional design guidance, not a claim about undocumented ChatGPT language-selection behavior.
+
+**Practical consequence:** Author reusable artifacts in English by default, including `SKILL.md`, supporting Markdown files, package documentation, reusable examples, schemas, templates, evaluation case definitions, and package metadata where the platform format permits. Do not hard-code the repository owner's preferred language, one project's local conversation language, or repository-specific multilingual assumptions into reusable Skills; put that context in Project instructions, current conversation constraints, or explicit Skill inputs, consistent with Principle 5. Adapt user-facing explanatory prose when reliably possible, but do not translate or alter exact-form content such as source code, shell commands, file paths, branch names, repository-convention commit messages, task-specified issue or PR content, API names, identifiers, schema keys, required literal values, exact quotations, evidence excerpts, synthetic tokens, deterministic marker output, or required output-contract labels. Language adaptation must not weaken evidence fidelity, exact-output requirements, identifier correctness, code correctness, or output-contract compliance. Future representative Skill evaluation should include multilingual cases when language adaptation is materially relevant, such as English input and output, Japanese input and output, explicit requested output language, mixed-language input, exact-literal preservation, and uncertain-language fallback; do not add those cases before a scoped evaluation need exists.
+
 ## Common failure patterns
 
 - **Premature abstraction:** Adds frameworks or layers before evidence shows they are needed, making small Issues harder to review.
@@ -154,6 +162,7 @@ This document defines durable design principles for reusable AI agent Skills dev
 - **Hiding unknowns behind confident language:** Prevents reviewers from seeing what still needs evidence.
 - **Creating one enormous `SKILL.md`:** Makes review, testing, versioning, and maintenance harder.
 - **Packaging an unvalidated Skill as stable:** Implies reliability that the repository has not demonstrated.
+- **Conflating source language with runtime translation:** Mixes repository authoring policy with user-facing presentation or alters evidence, literals, identifiers, or output-contract labels during language adaptation.
 
 ## Decision checklist
 
@@ -166,3 +175,4 @@ This document defines durable design principles for reusable AI agent Skills dev
 - Is escalation defined?
 - Has representative validation occurred?
 - Does packaging status match the evidence?
+- Does the Skill keep reusable source artifacts in English while adapting user-facing prose without altering exact evidence, literals, or output contracts?
