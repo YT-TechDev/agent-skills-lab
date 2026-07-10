@@ -40,14 +40,14 @@ Repository-specific Project instructions must remain separate from reusable Skil
 ├── LICENSE
 ├── README.md
 ├── docs/
-│   └── .gitkeep
+│   └── design-principles.md
 ├── experiments/
 │   └── .gitkeep
 └── skills/
     └── .gitkeep
 ```
 
-- `docs/` contains repository documentation that is not itself a packaged Skill.
+- `docs/` contains repository documentation that is not itself a packaged Skill, including the [Skill design principles](docs/design-principles.md).
 - `experiments/` contains behavior spikes and temporary investigations.
 - `skills/` contains production-target or validated Skill packages.
 
