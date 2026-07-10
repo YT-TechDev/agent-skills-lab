@@ -12,13 +12,13 @@ Source basis: Issue #33 owner-provided observation evidence, repository files at
 | Package-handling classification: `accepted` | VERIFIED | Observed |
 | Case A exact outside-Project fallback | VERIFIED | Observed |
 | Case B exact active-Project output | VERIFIED | Observed |
-| Project-instruction interaction | PARTIAL | Observed |
+| Project-instruction interaction conclusion | PARTIAL | Unverified |
 | Owner-confirmed runtime constraints | VERIFIED | Unverified |
 | Reproduction | MISSING | Unverified |
 | Internal mechanisms | UNKNOWN | Unverified |
 | Production readiness | NOT APPLICABLE | Unverified |
 
-`Observed` applies only to visible owner-side platform evidence from this first controlled run. This record is not `Reproduced`. Requirement/result statuses and platform observation labels are separate classifications.
+`Observed` applies only to visible owner-side platform evidence from this first controlled run. The Project-instruction interaction conclusion is a reasonable inference based on the observed Case A and Case B evidence, not a directly visible platform fact. This record is not `Reproduced`. Requirement/result statuses and platform observation labels are separate classifications.
 
 ## Maturity and production-readiness status
 
