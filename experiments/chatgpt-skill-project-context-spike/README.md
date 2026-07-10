@@ -81,20 +81,22 @@ Run the exact prompt in a fresh conversation with no Project intentionally selec
 
 ## Case B active-Project interaction
 
-Run the exact prompt in a fresh conversation inside a temporary Project that contains exactly `project-instructions.md`. The expected exact output is the active marker and synthetic token recorded in `expected-results.md`.
+Create or use a temporary Project whose Project instructions field contains exactly the contents of `project-instructions.md`. Do not upload `project-instructions.md` as a Project file or knowledge attachment. Run the exact prompt in a fresh conversation inside that Project with the Skill explicitly selected. The expected exact output is the active marker and synthetic token recorded in `expected-results.md`.
 
 ## Evidence to capture
 
 - exact tested commit
 - exact package tree or hash where practical
-- exact Project-instruction fixture used for Case B
+- exact Project instructions field contents used for Case B
+- confirmation that no Project files or knowledge attachments were used
 - product surface, workspace, model, and reasoning setting
 - separate fresh conversation per case
 - visible selected Skill pill before sending
 - exact prompt
 - exact output
 - whether tools or connectors were intentionally used
-- safe written notes or screenshots only when useful
+- sanitized textual evidence for the repository record
+- owner-side screenshots may be reviewed privately or in the working conversation when useful, but must never be committed
 
 ## Status and platform-label separation
 
@@ -112,7 +114,8 @@ Stop and record the limitation when:
 
 - the Skill cannot be selected
 - the selected Skill pill is not visible before sending
-- the temporary Project cannot be configured with exactly the fixture
+- the temporary Project instructions field cannot be configured with exactly the fixture contents
+- the fixture is uploaded as a Project file or knowledge attachment
 - the fixed model, reasoning, workspace, or product surface is unavailable
 - the prompt accidentally includes a marker or token
 - tools or connectors are used unintentionally
@@ -124,7 +127,9 @@ Stop and record the limitation when:
 - use only the synthetic token in the fixture
 - do not include secrets, credentials, personal information, private URLs, or private repository content
 - do not commit AI conversation, task, or session-sharing URLs
-- do not commit screenshots for this preparation change
+- use sanitized textual evidence as the repository record
+- owner-side screenshots may be reviewed privately or in the working conversation
+- do not commit screenshots in this preparation PR or any later observation PR
 - do not add generated platform files or archives
 - capture only the minimum evidence needed later
 
@@ -139,6 +144,7 @@ A later separate change may record owner-side observations for these two cases. 
 - instruction-precedence test
 - internal prompt or context assembly test
 - tools or connectors
+- Project file or knowledge-attachment testing
 - supporting package files
 - screenshots or archives
 - production Skill work

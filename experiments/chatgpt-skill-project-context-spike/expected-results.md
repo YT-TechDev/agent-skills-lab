@@ -55,7 +55,8 @@ Run the project context interaction spike.
 Environment:
 
 - fresh conversation inside a temporary Project
-- Project contains exactly `project-instructions.md`
+- the active Project instructions field contains exactly the contents of `project-instructions.md`
+- no Project files or knowledge attachments are used
 - Skill explicitly selected
 - Skill pill visible
 - fixed model and reasoning settings
