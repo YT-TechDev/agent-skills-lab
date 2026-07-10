@@ -1,0 +1,21 @@
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Editor and IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.bak
+
+# Local environment and secret-bearing files
+.env
+.env.*
+*.local
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
