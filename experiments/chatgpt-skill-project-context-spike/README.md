@@ -3,9 +3,14 @@
 ## Status
 
 - maturity: experimental
-- current evidence: unverified
-- repository package preparation: complete after this change
-- owner-side product experiment: not run by this change
+- current evidence: first owner-side controlled observation completed on 2026-07-11
+- observation record: [2026-07-11 first owner run](observations/2026-07-11-first-owner-run.md)
+- repository package preparation: complete
+- Case A exact fallback: `VERIFIED` / `Observed`
+- Case B exact active output: `VERIFIED` / `Observed`
+- Project-instruction interaction: evidence-consistent, not internally proven
+- reproduction: not established
+- internal mechanisms: `UNKNOWN`
 - production readiness: not applicable
 
 ## Experiment question
