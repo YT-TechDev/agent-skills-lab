@@ -68,7 +68,9 @@ Directly observed UI behavior:
 - the UI displayed a successful-upload message
 - `minimal-behavior-spike` appeared under installed Skills
 - the frontmatter name appeared as the displayed Skill name
-- a description appeared in the Skill list
+- the displayed Skill-list description was `Invoke a specific behavior testing marker.`
+- the displayed description did not exactly match the repository frontmatter description
+- the same Skill name was visible under both installed Skills and self-created Skills
 
 Requirement/result status: `VERIFIED`.
 Platform observation label: `Observed`.
@@ -85,6 +87,11 @@ Boundaries:
 - validation behavior remains unknown
 - storage behavior remains unknown
 - transformation behavior remains unknown
+- this run does not determine whether the displayed description came directly from frontmatter
+- this run does not determine whether ChatGPT summarized or transformed the description
+- this run does not determine whether the displayed description was associated with the existing same-named self-created Skill
+- this run does not determine whether duplicate-name handling affected the listing
+- this run does not determine whether the uploaded description field was stored unchanged
 
 No account-specific UI data or screenshot files are included.
 
@@ -230,7 +237,9 @@ This case is not described as a failure and is not proof of automatic routing pr
 - The Skills page exposed chat creation, editor creation, and upload-from-computer options.
 - The upload dialog advertised `.zip`, `.skill`, and direct `SKILL.md`.
 - Direct `SKILL.md` upload was accepted in this run.
-- Uploaded frontmatter values were reflected in the installed Skill listing.
+- The displayed Skill name matched the uploaded frontmatter `name`.
+- A description was displayed in the Skill listing, but it did not exactly match the repository frontmatter description.
+- The same Skill name was visible under both installed and self-created sections.
 - The uploaded Skill appeared under installed Skills.
 - A selected Skill appeared as a visible Skill pill in conversation.
 - Explicit token behavior matched expectations.
@@ -242,9 +251,9 @@ This case is not described as a failure and is not proof of automatic routing pr
 ## Inferred
 
 - The uploaded Skill instructions likely affected model behavior because the selected Skill pill and deterministic outputs aligned with the package contract.
-- The frontmatter was parsed sufficiently to populate displayed Skill metadata.
+- The uploaded frontmatter `name` was likely parsed or otherwise used because the displayed Skill name matched it.
 
-These are inferences rather than directly visible internal facts. This record does not infer exact internal prompt injection, exact instruction-loading architecture, storage architecture, validation implementation, universal metadata requirements, automatic invocation behavior, behavior when the Skill is not selected, behavior across all ChatGPT plans, behavior across all models, or behavior across all product surfaces.
+These are inferences rather than directly visible internal facts. The source of the displayed description remains unknown. This record does not infer description parsing, transformation, summarization, deduplication, exact internal prompt injection, exact instruction-loading architecture, storage architecture, validation implementation, universal metadata requirements, automatic invocation behavior, behavior when the Skill is not selected, behavior across all ChatGPT plans, behavior across all models, or behavior across all product surfaces.
 
 ## Unknowns
 
@@ -271,6 +280,11 @@ These are inferences rather than directly visible internal facts. This record do
 - internal validation mechanism: `UNKNOWN`
 - internal storage mechanism: `UNKNOWN`
 - internal instruction-loading mechanism: `UNKNOWN`
+- source of the displayed description: `UNKNOWN`
+- whether the uploaded `description` value was parsed directly: `UNKNOWN`
+- whether the description was generated or summarized by the platform: `UNKNOWN`
+- duplicate-name handling between installed and self-created Skills: `UNKNOWN`
+- whether an existing same-named Skill influenced the listing: `UNKNOWN`
 - reproduction under materially comparable conditions: `UNKNOWN` / Unverified
 
 ## Discrepancies
@@ -281,8 +295,11 @@ These are inferences rather than directly visible internal facts. This record do
 - Automatic non-trigger routing was not exercised.
 - The first missing-token response came from an automatic exploratory prompt rather than the precommitted prompt, but the exact prompt was subsequently run successfully.
 - `.zip` and `.skill` were advertised but not tested.
+- The displayed description did not exactly match the repository frontmatter description.
+- The same Skill name appeared under installed and self-created sections.
+- The description mismatch and duplicate same-name listing prevent attribution of all displayed metadata directly to the uploaded frontmatter.
 
-These discrepancies do not classify Case D as a failed test and do not identify model inconsistency as the cause of any observed behavior.
+These discrepancies do not classify upload acceptance as failed, do not classify Case D as a failed test, and do not identify model inconsistency as the cause of any observed behavior.
 
 ## Limitations
 
@@ -302,6 +319,7 @@ These discrepancies do not classify Case D as a failed test and do not identify 
 - No tools were tested.
 - No connectors were tested.
 - No persistence or cross-device behavior was tested.
+- Duplicate same-named Skill entries and the description mismatch limited metadata attribution.
 
 ## Decision
 
@@ -314,6 +332,7 @@ These discrepancies do not classify Case D as a failed test and do not identify 
 - The result is not `Reproduced`.
 - No production Skill should be created from this single run.
 - No final packaging standard should be inferred from this run.
+- This run supports direct upload acceptance but does not establish exact metadata-preservation behavior.
 
 ## Smallest justified next experiment
 
