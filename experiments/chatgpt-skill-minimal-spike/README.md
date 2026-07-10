@@ -5,18 +5,23 @@
 - maturity: experimental
 - first owner-side observation: recorded
 - selected deterministic behavior reproduction: established under the recorded controlled conditions
-- automatic invocation: unverified
+- installed-but-unattached explicit-trigger automatic Skill execution: observed once under recorded conditions
+- automatic invocation reproducibility and internal routing: unverified
 - production readiness: not applicable
 
 ## Recorded observations
 
 - [First owner-side run — 2026-07-10](observations/2026-07-10-first-owner-run.md)
 - [Controlled reproduction — 2026-07-10](observations/2026-07-10-controlled-reproduction.md)
+- [Installed-but-unattached observation — 2026-07-10](observations/2026-07-10-installed-but-unattached-observation.md)
 - direct `SKILL.md` upload was observed
 - selected deterministic token behavior was observed and selected explicit-token behavior was reproduced under recorded controlled conditions
 - selected deterministic missing-token behavior was observed and reproduced under recorded controlled conditions
 - selected marker suppression was observed and reproduced under recorded controlled conditions
-- automatic invocation remains unverified
+- installed-but-unattached explicit trigger produced visible automatic Skill execution/loading and the exact deterministic output
+- installed-but-unattached unrelated request produced no visible Skill execution/loading and suppressed both markers
+- installed-but-unattached results are first observations, not reproduced behavior
+- internal routing remains unverified
 - the package remains experimental
 
 ## Experiment question
