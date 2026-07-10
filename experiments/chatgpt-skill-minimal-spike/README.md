@@ -4,18 +4,18 @@
 
 - maturity: experimental
 - first owner-side observation: recorded
-- reproduction: not established
+- selected deterministic behavior reproduction: established under the recorded controlled conditions
 - automatic invocation: unverified
 - production readiness: not applicable
 
 ## Recorded observations
 
 - [First owner-side run — 2026-07-10](observations/2026-07-10-first-owner-run.md)
+- [Controlled reproduction — 2026-07-10](observations/2026-07-10-controlled-reproduction.md)
 - direct `SKILL.md` upload was observed
-- selected deterministic token behavior was observed
-- selected deterministic missing-token behavior was observed
-- the selected marker-suppression case passed
-- reproduction remains unestablished
+- selected deterministic token behavior was observed and selected explicit-token behavior was reproduced under recorded controlled conditions
+- selected deterministic missing-token behavior was observed and reproduced under recorded controlled conditions
+- selected marker suppression was observed and reproduced under recorded controlled conditions
 - automatic invocation remains unverified
 - the package remains experimental
 
