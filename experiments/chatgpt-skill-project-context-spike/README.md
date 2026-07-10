@@ -3,9 +3,14 @@
 ## Status
 
 - maturity: experimental
-- current evidence: unverified
-- repository package preparation: complete after this change
-- owner-side product experiment: not run by this change
+- current evidence: first owner-side controlled observation completed on 2026-07-11
+- observation record: [2026-07-11 first owner run](observations/2026-07-11-first-owner-run.md)
+- repository package preparation: complete
+- Case A exact fallback: `VERIFIED` / `Observed`
+- Case B exact active output: `VERIFIED` / `Observed`
+- Project-instruction interaction: evidence-consistent, not internally proven
+- reproduction: not established
+- internal mechanisms: `UNKNOWN`
 - production readiness: not applicable
 
 ## Experiment question
@@ -32,11 +37,11 @@ The package contains exactly one file. The package must not contain the Project-
 
 ## Project-instruction fixture boundary
 
-`project-instructions.md` is a repository experiment fixture for a later temporary Project. It remains outside `package/` and is not part of the installed Skill package.
+`project-instructions.md` is a repository experiment fixture used in the recorded temporary Project. It remains outside `package/` and is not part of the installed Skill package.
 
 ## Runtime token-separation rule
 
-The synthetic token may appear in repository experiment documentation and the Project-instruction fixture to precommit expected results. It must not appear in `package/SKILL.md`, in the installed package, or in the later manual user prompt.
+The synthetic token may appear in repository experiment documentation and the Project-instruction fixture to precommit expected results. It must not appear in `package/SKILL.md`, in the installed package, or in the recorded manual user prompt.
 
 ## Skill behavior contract
 
@@ -100,7 +105,7 @@ Create or use a temporary Project whose Project instructions field contains exac
 
 ## Status and platform-label separation
 
-Keep requirement/result statuses such as `VERIFIED`, `PARTIAL`, `MISSING`, and `UNKNOWN` separate from platform labels such as `Observed` or `Reproduced`. The first owner-side run, if performed later, is `Observed`, not `Reproduced`.
+Keep requirement/result statuses such as `VERIFIED`, `PARTIAL`, `MISSING`, and `UNKNOWN` separate from platform labels such as `Observed` or `Reproduced`. The 2026-07-11 first owner-side run is `Observed`, not `Reproduced`.
 
 ## Interpretation boundaries
 
@@ -135,17 +140,14 @@ Stop and record the limitation when:
 
 ## Next experiment boundary
 
-A later separate change may record owner-side observations for these two cases. Do not add an observation file, production Skill, automation, tools, connectors, or broader Project-instruction tests in this preparation change.
+A later separate change may record a second materially comparable active-Project run or a narrower isolation test. Do not add production Skill work, automation, tools, connectors, or broader Project-instruction tests in this observation closeout.
 
 ## Non-goals
 
-- owner-side Project run in this change
-- observed-result claim in this change
-- instruction-precedence test
-- internal prompt or context assembly test
-- tools or connectors
-- Project file or knowledge-attachment testing
-- supporting package files
-- screenshots or archives
-- production Skill work
-- CI, scripts, dependencies, or automation
+- no second active-Project run
+- no reproduction claim
+- no instruction-precedence test
+- no internal prompt or context-assembly claim
+- no Project file or knowledge-attachment testing
+- no production Skill work
+- no CI, scripts, dependencies, or automation
