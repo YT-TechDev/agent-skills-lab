@@ -29,13 +29,14 @@ This repository is intended to support coordinated work across multiple AI codin
 - Codex implements repository changes, validates diffs, and prepares controlled pull requests.
 - Claude Code may provide independent implementation, review, and behavior-comparison feedback.
 
-Repository-specific Project instructions must remain separate from reusable Skill procedures so Skills can be packaged and reused outside this repository.
+Repository-specific Project instructions must remain separate from reusable Skill procedures so Skills can be packaged and reused outside this repository. Repository-wide agent operating rules are defined in `AGENTS.md`.
 
 ## Repository structure
 
 ```text
 .
 ├── .gitignore
+├── AGENTS.md
 ├── LICENSE
 ├── README.md
 ├── docs/
