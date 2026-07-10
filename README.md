@@ -45,17 +45,15 @@ Repository-specific Project instructions must remain separate from reusable Skil
 │   ├── evaluation-strategy.md
 │   └── skill-lifecycle.md
 ├── experiments/
-│   └── chatgpt-skill-minimal-spike/
-│       ├── README.md
-│       ├── expected-results.md
-│       └── package/
-│           └── SKILL.md
+│   ├── chatgpt-skill-minimal-spike/
+│   ├── chatgpt-skill-supporting-file-spike/
+│   └── chatgpt-skill-project-context-spike/
 └── skills/
     └── .gitkeep
 ```
 
 - `docs/` contains repository documentation that is not itself a packaged Skill, including the [Skill design principles](docs/design-principles.md), [initial Skill evaluation strategy](docs/evaluation-strategy.md), and [Skill development lifecycle](docs/skill-lifecycle.md).
-- `experiments/` contains behavior spikes and temporary investigations, including the [minimal ChatGPT Skill behavior spike](experiments/chatgpt-skill-minimal-spike/README.md).
+- `experiments/` contains behavior spikes and temporary investigations, including the [minimal ChatGPT Skill behavior spike](experiments/chatgpt-skill-minimal-spike/README.md), [minimal ChatGPT Skill supporting-file spike](experiments/chatgpt-skill-supporting-file-spike/README.md), and [ChatGPT Skill Project-context interaction spike](experiments/chatgpt-skill-project-context-spike/README.md).
 - `skills/` contains production-target or validated Skill packages.
 
 ## Experiments vs. production-target Skills
