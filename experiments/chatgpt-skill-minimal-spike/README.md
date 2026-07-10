@@ -3,9 +3,21 @@
 ## Status
 
 - maturity: experimental
-- platform evidence: Unverified
-- owner-side manual test: not run in this repository change
+- first owner-side observation: recorded
+- reproduction: not established
+- automatic invocation: unverified
 - production readiness: not applicable
+
+## Recorded observations
+
+- [First owner-side run — 2026-07-10](observations/2026-07-10-first-owner-run.md)
+- direct `SKILL.md` upload was observed
+- selected deterministic token behavior was observed
+- selected deterministic missing-token behavior was observed
+- the selected marker-suppression case passed
+- reproduction remains unestablished
+- automatic invocation remains unverified
+- the package remains experimental
 
 ## Experiment question
 
