@@ -18,8 +18,9 @@ Skill development proceeds incrementally through:
 4. implementation
 5. evaluation
 6. packaging
+7. review and installation
 
-Early work may validate behavior in temporary experiments before any production-target Skill package is created.
+Early work may validate behavior in temporary experiments before any production-target Skill package is created. See the [Skill development lifecycle](docs/skill-lifecycle.md) for evidence gates, revision loops, packaging boundaries, and installation rules.
 
 ## Agent responsibilities
 
@@ -40,14 +41,15 @@ Repository-specific Project instructions must remain separate from reusable Skil
 ├── LICENSE
 ├── README.md
 ├── docs/
-│   └── design-principles.md
+│   ├── design-principles.md
+│   └── skill-lifecycle.md
 ├── experiments/
 │   └── .gitkeep
 └── skills/
     └── .gitkeep
 ```
 
-- `docs/` contains repository documentation that is not itself a packaged Skill, including the [Skill design principles](docs/design-principles.md).
+- `docs/` contains repository documentation that is not itself a packaged Skill, including the [Skill design principles](docs/design-principles.md) and [Skill development lifecycle](docs/skill-lifecycle.md).
 - `experiments/` contains behavior spikes and temporary investigations.
 - `skills/` contains production-target or validated Skill packages.
 
