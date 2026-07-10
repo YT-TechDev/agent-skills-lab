@@ -36,6 +36,9 @@ Repository-specific Project instructions must remain separate from reusable Skil
 
 ```text
 .
+├── .github/
+│   └── workflows/
+│       └── repository-validation.yml
 ├── .gitignore
 ├── AGENTS.md
 ├── LICENSE
@@ -48,12 +51,16 @@ Repository-specific Project instructions must remain separate from reusable Skil
 │   ├── chatgpt-skill-minimal-spike/
 │   ├── chatgpt-skill-supporting-file-spike/
 │   └── chatgpt-skill-project-context-spike/
+├── scripts/
+│   └── validate_repository.py
 └── skills/
     └── .gitkeep
 ```
 
 - `docs/` contains repository documentation that is not itself a packaged Skill, including the [Skill design principles](docs/design-principles.md), [initial Skill evaluation strategy](docs/evaluation-strategy.md), and [Skill development lifecycle](docs/skill-lifecycle.md).
 - `experiments/` contains behavior spikes and temporary investigations, including the [minimal ChatGPT Skill behavior spike](experiments/chatgpt-skill-minimal-spike/README.md), [minimal ChatGPT Skill supporting-file spike](experiments/chatgpt-skill-supporting-file-spike/README.md), and [ChatGPT Skill Project-context interaction spike](experiments/chatgpt-skill-project-context-spike/README.md).
+- `.github/workflows/repository-validation.yml` runs the minimal static repository validator in CI.
+- `scripts/validate_repository.py` provides local static validation for repository hygiene, links, package shape, and artifact boundaries.
 - `skills/` contains production-target or validated Skill packages.
 
 ## Experiments vs. production-target Skills
@@ -61,6 +68,16 @@ Repository-specific Project instructions must remain separate from reusable Skil
 `experiments/` is for temporary behavior discovery, comparison notes, and small spikes that help determine how a Skill should work.
 
 `skills/` is reserved for production-target or validated Skill packages. Experimental findings should only move into `skills/` after they have been specified, implemented, evaluated, and prepared for packaging.
+
+## Validation
+
+Run the same minimal static validator used by CI:
+
+```bash
+python3 scripts/validate_repository.py
+```
+
+The validator checks static repository text hygiene, repository-relative Markdown links, Skill package shape, and artifact boundaries. It does not test ChatGPT runtime behavior and does not establish production readiness.
 
 ## Public repository hygiene
 
