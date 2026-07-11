@@ -188,7 +188,7 @@ Later separate specification areas are:
 5. [decision rules](github-standard-engineering-review-decision-rules.md);
 6. [review workflow](github-standard-engineering-review-workflow.md);
 7. [stopping and failure conditions](github-standard-engineering-review-stopping-and-failure-policy.md);
-8. exact verdict contract;
+8. [exact verdict contract](github-standard-engineering-review-verdict-contract.md);
 9. output format;
 10. examples and golden cases;
 11. evaluation plan;
