@@ -96,7 +96,7 @@ The Skill may judge only from accessible evidence. It must:
 - prefer current repository evidence over stale conversation context; and
 - use `UNABLE TO VERIFY` when required evidence cannot be accessed or reconciled.
 
-A later specification may define an exact verdict set such as:
+A later specification will define the selection rules for this exact verdict set:
 
 - MERGE READY
 - MERGE READY WITH NON-BLOCKING NOTES
