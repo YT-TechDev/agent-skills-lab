@@ -186,7 +186,7 @@ Later separate specification areas are:
 3. [GitHub tool and connector policy](github-standard-engineering-review-tool-policy.md);
 4. [evidence hierarchy](github-standard-engineering-review-evidence-policy.md);
 5. [decision rules](github-standard-engineering-review-decision-rules.md);
-6. review workflow;
+6. [review workflow](github-standard-engineering-review-workflow.md);
 7. stopping and failure conditions;
 8. exact verdict contract;
 9. output format;
