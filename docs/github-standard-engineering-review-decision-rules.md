@@ -28,6 +28,7 @@ Do not add aliases, grades, extra verdicts, numeric scores, confidence percentag
 - One current target PR is one review unit.
 - Target identity and current change-state integrity are established before readiness conclusions.
 - Every blocker and readiness conclusion is backed by accessible evidence.
+- Blockers are claim-relative and requirement-relative, not keyword-triggered or preference-based.
 - A confirmed failure differs from an inability to inspect or determine.
 - Material unknowns prevent a positive verdict.
 - One verified current blocker is sufficient for `NOT MERGE READY`.
@@ -165,19 +166,19 @@ An unmet requirement is a blocker. An inaccessible material requirement is a ver
 
 ### Correctness
 
-A material correctness defect supported by current code, diff, behavior evidence, or validation output is a blocker. Inability to inspect code or behavior necessary for a correctness judgment is a verification gap.
+A material correctness defect supported by current code, diff, behavior evidence, or validation output is a blocker. A plausible but unresolved material correctness concern is a material verification gap when positive readiness cannot be established. Inability to inspect code or behavior necessary for a correctness judgment is a verification gap. Stylistic preference without material impact is non-blocking or omitted.
 
 ### Tests and validation
 
-A failed required test or validation command is a blocker. Required tests confirmed absent or materially inadequate are blockers. A required result that is inaccessible, ambiguous, stale, or not associated with the current change state is a verification gap. Extra tests beyond sufficient current coverage are optional notes, not blockers.
+A failed required test or validation command is a blocker. Required tests confirmed absent or materially inadequate are blockers. A required result that is inaccessible, ambiguous, stale, or not associated with the current change state is a verification gap. Documentation-only or otherwise non-runtime changes may make tests `NOT APPLICABLE` when supported by PR scope and repository evidence. Extra tests beyond sufficient current coverage are optional notes, not blockers.
 
 ### CI/checks
 
-Failed required CI is a blocker. Pending required CI is a blocker when completion is a confirmed merge requirement. Required CI state that is inaccessible or contradictory is a verification gap. Optional check failure is evaluated against repository rules and materiality rather than treated as automatically blocking or automatically ignorable.
+Failed required CI is a blocker. Pending required CI is a blocker when completion is a confirmed merge requirement. A skipped or cancelled required check is a blocker when repository policy requires successful completion. When the required status or meaning of a skipped or cancelled check is unclear, treat it as a material verification gap. Required CI state that is inaccessible or contradictory is a verification gap. Optional check failure is evaluated against repository rules and materiality rather than treated as automatically blocking or automatically ignorable.
 
 ### Reviews and unresolved threads
 
-An absent required approval is a blocker. An unresolved material blocking thread is a blocker. Required thread or review state that is inaccessible is a verification gap. Lack of comments is not approval.
+An absent required approval is a blocker. An unresolved material blocking thread is a blocker. Required thread or review state that is inaccessible is a verification gap. An approval associated only with stale code must not be assumed current after material branch changes. Lack of comments is not approval.
 
 ### Documentation
 
@@ -193,7 +194,7 @@ Material unnecessary complexity that threatens correctness, reviewability, futur
 
 ### Deep Review escalation
 
-Repository-required Deep Review or specialist approval confirmed absent is a blocker. Optional escalation recommendation is a non-blocking or escalation note. Standard Review never claims Deep Review completion.
+Repository-required Deep Review or specialist approval confirmed absent is a blocker. Inaccessible evidence about a repository-required Deep Review, specialist approval, or escalation is a material verification gap. Optional escalation recommendation is a non-blocking or escalation note. Standard Review never claims Deep Review completion.
 
 ## Positive-verdict minimum conditions
 
