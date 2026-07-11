@@ -191,7 +191,7 @@ Later separate specification areas are:
 8. [exact verdict contract](github-standard-engineering-review-verdict-contract.md);
 9. [output format](github-standard-engineering-review-output-format.md);
 10. [examples and golden cases](github-standard-engineering-review-examples-and-golden-cases.md);
-11. evaluation plan;
+11. [evaluation plan](github-standard-engineering-review-evaluation-plan.md);
 12. package structure; and
 13. version and production-readiness status.
 
