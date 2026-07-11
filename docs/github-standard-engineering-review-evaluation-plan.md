@@ -137,11 +137,11 @@ The normative cases are defined in [Standard Review examples and golden cases](g
 | POS-01 | 1, 2, 3 | 3, 5, 6, 9, 10, 14 | Normal review completion | MERGE READY | Complete material evidence, no blockers/gaps/notes, no assurance overclaim. |
 | POS-02 | 1, 2, 3 | 4, 6, 8, 9, 10 | Normal review completion | MERGE READY WITH NON-BLOCKING NOTES | Optional refactor remains non-blocking and clearly deferrable. |
 | POS-03 | 1, 2, 3 | 8, 9, 10, 15 | Normal review completion | MERGE READY WITH NON-BLOCKING NOTES | Optional Deep Review recommendation is not treated as required. |
-| BLK-01 | 1, 2, 3 | 3, 5, 9, 10, 16 | Normal review completion | CHANGES REQUESTED | Current-head correctness defect is a blocker with correction direction. |
-| BLK-02 | 1, 2, 3 | 3, 5, 9, 10, 16 | Normal review completion | CHANGES REQUESTED | Failed required CI is distinct from pending/inaccessible CI. |
-| BLK-03 | 1, 2, 3 | 3, 5, 9, 10, 16 | Normal review completion | CHANGES REQUESTED | Pending required CI after final refresh blocks readiness. |
-| BLK-04 | 1, 2, 3 | 4, 5, 9, 10, 16 | Normal review completion | CHANGES REQUESTED | Confirmed missing required approval/review is distinct from inaccessible approval state. |
-| BLK-05 | 1, 2, 3 | 5, 7, 9, 10, 14 | Normal review completion | CHANGES REQUESTED | Verified blocker remains decisive despite unrelated inaccessible evidence. |
+| BLK-01 | 1, 2, 3 | 3, 5, 9, 10, 16 | Normal review completion | NOT MERGE READY | Current-head correctness defect is a blocker with correction direction. |
+| BLK-02 | 1, 2, 3 | 3, 5, 9, 10, 16 | Normal review completion | NOT MERGE READY | Failed required CI is distinct from pending/inaccessible CI. |
+| BLK-03 | 1, 2, 3 | 3, 5, 9, 10, 16 | Verdict-ready stop after current evidence is sufficient. | NOT MERGE READY | Pending required CI after final refresh blocks readiness. |
+| BLK-04 | 1, 2, 3 | 4, 5, 9, 10, 16 | Normal review completion | NOT MERGE READY | Confirmed missing required approval/review is distinct from inaccessible approval state. |
+| BLK-05 | 1, 2, 3 | 5, 7, 9, 10, 14 | Normal review completion | NOT MERGE READY | Verified blocker remains decisive despite unrelated inaccessible evidence. |
 | GAP-01 | 1, 2, 3 | 2, 7, 9, 10, 17 | Terminal evidence failure | UNABLE TO VERIFY | Unknown current head is a material gap, not a blocker. |
 | GAP-02 | 1, 2, 3 | 3, 7, 9, 10, 17 | Terminal evidence failure | UNABLE TO VERIFY | Inaccessible material diff coverage is a gap. |
 | GAP-03 | 1, 2, 3 | 3, 7, 9, 10, 17 | Terminal evidence failure | UNABLE TO VERIFY | Inaccessible required CI state is distinct from failed/pending CI. |
@@ -149,8 +149,8 @@ The normative cases are defined in [Standard Review examples and golden cases](g
 | GAP-05 | 1, 2, 3 | 4, 7, 9, 10, 17 | Terminal evidence failure | UNABLE TO VERIFY | Contradictory governing requirements create a material gap. |
 | GAP-06 | 1, 2, 3 | 11, 12, 7, 9, 10 | Unstable-head stop | UNABLE TO VERIFY | Head-change limits are respected and no stable verdict is fabricated. |
 | RRV-01 | 1, 2, 3 | 2, 6, 9, 10, 13 | Re-review completion | MERGE READY | Fixed prior blocker is re-verified and not retained. |
-| RRV-02 | 1, 2, 3 | 7, 9, 10, 13, 16 | Re-review completion with gap | UNABLE TO VERIFY | Claimed fix is not treated resolved without current evidence. |
-| RRV-03 | 1, 2, 3 | 5, 9, 10, 13, 16 | Re-review completion | CHANGES REQUESTED | Current remaining blocker is decisive after full recomputation. |
+| RRV-02 | 1, 2, 3 | 7, 9, 10, 13, 16 | Terminal evidence failure after recovery exhausted. | UNABLE TO VERIFY | Claimed fix is not treated resolved without current evidence. |
+| RRV-03 | 1, 2, 3 | 5, 9, 10, 13, 16 | Re-review completion | NOT MERGE READY | Current remaining blocker is decisive after full recomputation. |
 
 Layer 4 applies to repository artifacts for any implementation or documentation change but does not prove behavior for any case.
 
