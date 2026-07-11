@@ -185,7 +185,7 @@ Later separate specification areas are:
 2. [required and optional inputs](github-standard-engineering-review-input-contract.md);
 3. [GitHub tool and connector policy](github-standard-engineering-review-tool-policy.md);
 4. [evidence hierarchy](github-standard-engineering-review-evidence-policy.md);
-5. decision rules;
+5. [decision rules](github-standard-engineering-review-decision-rules.md);
 6. review workflow;
 7. stopping and failure conditions;
 8. exact verdict contract;
