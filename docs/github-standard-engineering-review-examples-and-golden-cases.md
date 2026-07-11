@@ -155,7 +155,7 @@ Fields that do not apply are written as `NOT APPLICABLE` rather than omitted.
 | Governing requirement/applicability | Cancellation or material target replacement ends the current unit. |
 | Available evidence | User cancellation/replacement is explicit. |
 | Limited, inaccessible, stale, or conflicting evidence | Any prior PR #42 evidence is target-specific and historical. |
-| Expected evidence statuses | Prior evidence STALE for replacement. |
+| Expected evidence statuses | NOT APPLICABLE. |
 | Expected finding classification | NOT APPLICABLE. |
 | Expected ending class | User-requested cancellation or material scope replacement. |
 | Expected verdict or NO VERDICT | NO VERDICT |
@@ -193,14 +193,14 @@ Fields that do not apply are written as `NOT APPLICABLE` rather than omitted.
 | Request or trigger situation | Standard Review for example/widgets PR #42. |
 | Target and reviewed head, or NOT ESTABLISHED | example/widgets PR #42; head abc1234 (illustrative). |
 | Governing requirement/applicability | No repository rule requires the improvement. |
-| Available evidence | All required checks and review state satisfied; src/cache.ts has clear but repetitive helper naming. |
+| Available evidence | All required checks and review state are satisfied; current behavior remains correct and tested; no public API or compatibility problem exists; several helpers repeat cache-key normalization that could be extracted into a shared module through a meaningful multi-file refactor. |
 | Limited, inaccessible, stale, or conflicting evidence | NOT APPLICABLE. |
 | Expected evidence statuses | Required criteria VERIFIED; optional improvement VERIFIED as non-required. |
 | Expected finding classification | Non-blocking note. |
 | Expected ending class | Normal review completion. |
 | Expected verdict or NO VERDICT | MERGE READY WITH NON-BLOCKING NOTES |
-| Decisive rationale | The improvement is evidence-supported and safe to defer despite being sizable enough to mention. |
-| Required output elements | Include one non-blocking note explaining safe deferral, validation/review state, scope note. |
+| Decisive rationale | The improvement is evidence-supported and safe to defer because no governing repository rule requires the multi-file refactor, behavior is correct and tested, and change size alone does not make optional work blocking. |
+| Required output elements | Include one non-blocking note explaining that extracting shared cache-key normalization would be a meaningful multi-file refactor but is safe to defer until after merge; include validation/review state and scope note. |
 | Prohibited claims or behaviors | Do not say the note must be fixed before merge or hide a blocker as a note. |
 | Re-review delta when applicable | NOT APPLICABLE |
 
@@ -435,7 +435,7 @@ Fields that do not apply are written as `NOT APPLICABLE` rather than omitted.
 | Governing requirement/applicability | Current-head association is mandatory. |
 | Available evidence | First change triggers allowed restart. |
 | Limited, inaccessible, stale, or conflicting evidence | Second head change occurs before final decision. |
-| Expected evidence statuses | Target stability UNKNOWN; previous-head evidence STALE/HISTORICAL. |
+| Expected evidence statuses | Target stability UNKNOWN; previous-head evidence UNKNOWN for current-head conclusions. |
 | Expected finding classification | Material verification gap. |
 | Expected ending class | Terminal unstable-target stop. |
 | Expected verdict or NO VERDICT | UNABLE TO VERIFY |
@@ -474,8 +474,8 @@ Fields that do not apply are written as `NOT APPLICABLE` rather than omitted.
 | Target and reviewed head, or NOT ESTABLISHED | example/widgets PR #42; new head jkl3456 (illustrative). |
 | Governing requirement/applicability | Current changed area must be inspectable to verify fix. |
 | Available evidence | New head established; prior blocker belongs to previous head. |
-| Limited, inaccessible, stale, or conflicting evidence | src/cache.ts current content inaccessible after bounded recovery. |
-| Expected evidence statuses | Current fix evidence UNKNOWN; prior blocker HISTORICAL. |
+| Limited, inaccessible, stale, or conflicting evidence | src/cache.ts current content is inaccessible after bounded recovery; the previous-head blocker is historical context and cannot support a current conclusion. |
+| Expected evidence statuses | Current fix evidence UNKNOWN. |
 | Expected finding classification | Material re-verification gap. |
 | Expected ending class | Terminal evidence failure after recovery exhausted. |
 | Expected verdict or NO VERDICT | UNABLE TO VERIFY |
@@ -512,7 +512,7 @@ Fields that do not apply are written as `NOT APPLICABLE` rather than omitted.
 | TRG-02 | Clarification pause before target-state establishment. | Target identity UNKNOWN. | NOT APPLICABLE. | NO VERDICT |
 | TRG-03 | Decline or redirect to separate job. | NOT APPLICABLE. | NOT APPLICABLE. | NO VERDICT |
 | TRG-04 | Decline or redirect to separate Deep Review workflow. | NOT APPLICABLE. | NOT APPLICABLE. | NO VERDICT |
-| TRG-05 | User-requested cancellation or material scope replacement. | Prior evidence STALE for replacement. | NOT APPLICABLE. | NO VERDICT |
+| TRG-05 | User-requested cancellation or material scope replacement. | NOT APPLICABLE. | NOT APPLICABLE. | NO VERDICT |
 | POS-01 | Normal review completion. | Relevant criteria VERIFIED satisfied or NOT APPLICABLE. | Satisfied; no findings. | MERGE READY |
 | POS-02 | Normal review completion. | Required criteria VERIFIED; optional improvement VERIFIED as non-required. | Non-blocking note. | MERGE READY WITH NON-BLOCKING NOTES |
 | POS-03 | Normal review completion. | Required criteria VERIFIED; Deep Review recommendation NOT APPLICABLE to readiness. | Non-blocking note / optional escalation. | MERGE READY WITH NON-BLOCKING NOTES |
@@ -526,9 +526,9 @@ Fields that do not apply are written as `NOT APPLICABLE` rather than omitted.
 | GAP-03 | Terminal evidence failure after recovery exhausted. | Required CI UNKNOWN. | Material verification gap. | UNABLE TO VERIFY |
 | GAP-04 | Terminal evidence failure after recovery exhausted. | Required review/thread state UNKNOWN. | Material verification gap. | UNABLE TO VERIFY |
 | GAP-05 | Terminal evidence failure after recovery exhausted. | Governing requirement UNKNOWN. | Material verification gap. | UNABLE TO VERIFY |
-| GAP-06 | Terminal unstable-target stop. | Target stability UNKNOWN; previous-head evidence STALE/HISTORICAL. | Material verification gap. | UNABLE TO VERIFY |
+| GAP-06 | Terminal unstable-target stop. | Target stability UNKNOWN; previous-head evidence UNKNOWN for current-head conclusions. | Material verification gap. | UNABLE TO VERIFY |
 | RRV-01 | Normal review completion. | Prior blocker VERIFIED resolved on current head; all material criteria VERIFIED/NOT APPLICABLE. | Satisfied; resolved prior finding appears only in delta/history. | MERGE READY |
-| RRV-02 | Terminal evidence failure after recovery exhausted. | Current fix evidence UNKNOWN; prior blocker HISTORICAL. | Material re-verification gap. | UNABLE TO VERIFY |
+| RRV-02 | Terminal evidence failure after recovery exhausted. | Current fix evidence UNKNOWN. | Material re-verification gap. | UNABLE TO VERIFY |
 | RRV-03 | Normal review completion. | One blocker VERIFIED resolved; required CI VERIFIED failed. | Current blocker; resolved finding only in delta/history. | NOT MERGE READY |
 
 ## 6. Illustrative output examples
@@ -643,7 +643,7 @@ The target and current head are established, but material changed-file coverage 
 
 - `src/cache.ts` coverage is `UNKNOWN` for `ghi9012` after bounded recovery (`file-fetch-src-cache-ts`). This inaccessible evidence is not classified as a failure, absence, approval, or resolution.
 
-### Re-verification direction
+### Re-verification requirement
 
 Re-run Standard Review when `src/cache.ts` diff or current file content is accessible for the same current head, or provide the smallest sanitized evidence needed to inspect that file.
 
@@ -657,7 +657,7 @@ Standard Review is a read-only merge-readiness review of this PR. It does not pr
 - Tool failure alone is not `MISSING`: `BLK-04`, `GAP-04`.
 - Confirmed absence after sufficient inspection can be `MISSING`: `BLK-04`.
 - A small required fix can still be blocking: `BLK-01`.
-- A large optional improvement can still be non-blocking: `POS-02`.
+- A large optional improvement can still be non-blocking; POS-02 demonstrates that a meaningful multi-file refactor is safe to defer when current behavior is correct and tested, no public API or compatibility problem exists, no governing rule requires it, and change size alone does not make optional work blocking.
 - Passing CI does not replace code review: `GAP-02`, Example D.
 - A previous-head blocker is historical until re-verified: `GAP-06`, `RRV-02`.
 - A verified blocker outranks unrelated material gap: `BLK-05`.
