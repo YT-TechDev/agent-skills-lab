@@ -183,7 +183,7 @@ Later separate specification areas are:
 
 1. [trigger and non-trigger cases](github-standard-engineering-review-trigger-policy.md);
 2. [required and optional inputs](github-standard-engineering-review-input-contract.md);
-3. GitHub tool and connector policy;
+3. [GitHub tool and connector policy](github-standard-engineering-review-tool-policy.md);
 4. evidence hierarchy;
 5. decision rules;
 6. review workflow;
