@@ -190,7 +190,7 @@ Later separate specification areas are:
 7. [stopping and failure conditions](github-standard-engineering-review-stopping-and-failure-policy.md);
 8. [exact verdict contract](github-standard-engineering-review-verdict-contract.md);
 9. [output format](github-standard-engineering-review-output-format.md);
-10. examples and golden cases;
+10. [examples and golden cases](github-standard-engineering-review-examples-and-golden-cases.md);
 11. evaluation plan;
 12. package structure; and
 13. version and production-readiness status.
