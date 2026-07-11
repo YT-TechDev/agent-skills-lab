@@ -192,7 +192,7 @@ Later separate specification areas are:
 9. [output format](github-standard-engineering-review-output-format.md);
 10. [examples and golden cases](github-standard-engineering-review-examples-and-golden-cases.md);
 11. [evaluation plan](github-standard-engineering-review-evaluation-plan.md);
-12. package structure; and
+12. [package structure](github-standard-engineering-review-package-structure.md); and
 13. version and production-readiness status.
 
 These areas intentionally remain incomplete after this Issue.
