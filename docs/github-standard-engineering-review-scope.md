@@ -181,7 +181,7 @@ This is an escalation recommendation boundary only. Standard Review does not def
 
 Later separate specification areas are:
 
-1. trigger and non-trigger cases;
+1. [trigger and non-trigger cases](github-standard-engineering-review-trigger-policy.md);
 2. required and optional inputs;
 3. GitHub tool and connector policy;
 4. evidence hierarchy;
