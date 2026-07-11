@@ -271,6 +271,8 @@ Required:
 - re-verification direction; and
 - scope note.
 
+`UNABLE TO VERIFY` preserves both verdict-contract eligibility paths: current PR or change-state integrity cannot be fully established, or target-state integrity is established but an unresolved material verification gap remains after bounded recovery. Include an `Unresolved target-state property` field in the reviewed target block only for the first path, when current PR or change-state integrity cannot be established. Omit that field when target-state integrity is established and `UNABLE TO VERIFY` results only from a material verification gap.
+
 Use the exact heading:
 
 ```markdown
@@ -442,7 +444,7 @@ These skeletons are placeholders, not golden tests.
 - Head ref: <head ref or UNKNOWN>
 - Reviewed head: <head SHA or UNKNOWN>
 - Review mode: <initial or same-PR re-review>
-- Unresolved target-state property: <property name>
+- Unresolved target-state property: <property name, only when current PR or change-state integrity cannot be established; omit when target-state integrity is established and only a material verification gap remains>
 
 <Limitation-led summary identifying the material target-state or evidence limitation.>
 
