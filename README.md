@@ -46,6 +46,7 @@ Repository-specific Project instructions must remain separate from reusable Skil
 ├── docs/
 │   ├── design-principles.md
 │   ├── evaluation-strategy.md
+│   ├── github-standard-engineering-review-scope.md
 │   └── skill-lifecycle.md
 ├── experiments/
 │   ├── chatgpt-skill-minimal-spike/
@@ -57,7 +58,7 @@ Repository-specific Project instructions must remain separate from reusable Skil
     └── .gitkeep
 ```
 
-- `docs/` contains repository documentation that is not itself a packaged Skill, including the [Skill design principles](docs/design-principles.md), [initial Skill evaluation strategy](docs/evaluation-strategy.md), and [Skill development lifecycle](docs/skill-lifecycle.md).
+- `docs/` contains repository documentation that is not itself a packaged Skill, including the [Skill design principles](docs/design-principles.md), [initial Skill evaluation strategy](docs/evaluation-strategy.md), [Standard Review job and scope](docs/github-standard-engineering-review-scope.md), and [Skill development lifecycle](docs/skill-lifecycle.md). The Standard Review job and scope document defines the intended reusable review boundary before production implementation.
 - `experiments/` contains behavior spikes and temporary investigations, including the [minimal ChatGPT Skill behavior spike](experiments/chatgpt-skill-minimal-spike/README.md), [minimal ChatGPT Skill supporting-file spike](experiments/chatgpt-skill-supporting-file-spike/README.md), and [ChatGPT Skill Project-context interaction spike](experiments/chatgpt-skill-project-context-spike/README.md).
 - `.github/workflows/repository-validation.yml` runs the minimal static repository validator in CI.
 - `scripts/validate_repository.py` provides local static validation for repository hygiene, links, package shape, and artifact boundaries.
