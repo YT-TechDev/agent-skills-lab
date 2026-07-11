@@ -45,8 +45,9 @@ Whenever a Standard Review merge-readiness verdict is emitted, the logical verdi
 Every emitted verdict requires:
 
 - one repository and one PR target;
-- the reviewed current head SHA or equivalent change identity;
+- the reviewed current head SHA or equivalent change identity when established;
 - target-state integrity state;
+- when current head identity cannot be established, the exact unresolved target-state property and resulting evidence limitation;
 - current evidence association;
 - evidence provenance and status for material conclusions;
 - material validation, CI, review, and discussion state;
@@ -200,8 +201,10 @@ Forbidden content:
 
 Eligibility requires either:
 
-- target-state integrity cannot be established; or
-- no verified current blocker exists, but at least one unresolved material verification gap remains after bounded recovery.
+- one repository and one PR target are established, but current PR or change-state integrity cannot be fully established; or
+- target-state integrity is established, no verified current blocker exists, and at least one unresolved material verification gap remains after bounded recovery.
+
+`UNABLE TO VERIFY` must not act as a verdict for unresolved repository or PR identity before target-state establishment. That case remains a clarification pause with no merge-readiness verdict.
 
 For every material gap, require:
 
@@ -213,9 +216,9 @@ For every material gap, require:
 
 Required logical content:
 
-- repository or PR identity that could be established;
-- target identity that could not be established, when applicable;
+- the established repository and PR target;
 - current head identity when established;
+- the exact current target-state property that could not be established;
 - material verification gaps;
 - logical recovery attempts or access limitations;
 - known validation, CI, and review state;
@@ -237,7 +240,7 @@ Forbidden content:
 - `MERGE READY` has no blocker, material gap, or meaningful qualification.
 - `MERGE READY WITH NON-BLOCKING NOTES` has no blocker or material gap and has at least one genuine note.
 - `NOT MERGE READY` has at least one verified current blocker.
-- `UNABLE TO VERIFY` has target-integrity failure or a material gap and no verified current blocker.
+- `UNABLE TO VERIFY` has an established repository and PR with current PR or change-state integrity failure, or target-state integrity is established and it has a material gap with no verified current blocker.
 - The same claim at the same evidence state cannot simultaneously be a blocker, material gap, and note.
 - Satisfied or `NOT APPLICABLE` criteria are not unresolved findings.
 - Immaterial unavailable evidence may be disclosed without promotion into a material gap.
@@ -303,8 +306,9 @@ Later output-format work must have at least the following logical information av
 
 - exact verdict;
 - repository and PR;
-- reviewed head SHA or equivalent identity;
+- reviewed head SHA or equivalent identity when established;
 - target-state integrity state;
+- exact unresolved current target-state property when head or change-state identity cannot be established;
 - concise verdict rationale;
 - verified blockers;
 - material verification gaps;
@@ -331,7 +335,7 @@ This is not:
 | `MERGE READY` | Target-state integrity established; sufficient material coverage; all material criteria `VERIFIED` satisfied or `NOT APPLICABLE`; no blocker, material gap, or meaningful qualification. | Repository, PR, reviewed head, evidence-grounded readiness rationale, no-blocker/no-gap statement, material validation/CI/review state, necessary immaterial limitations, Standard Review scope limitation. | Hidden material caveats, meaningful notes or optional escalation qualifications, required future work, perfection/Deep Review/release-safety claims, uninspected-area satisfaction claims. | Recompute from refreshed current evidence; prior readiness is historical only. |
 | `MERGE READY WITH NON-BLOCKING NOTES` | Every positive-verdict minimum condition; no blocker; no material gap; at least one genuine evidence-supported non-blocking note. | Repository, PR, reviewed head, positive rationale, no-blocker/no-gap statement, material validation/CI/review state, each note, optional Deep Review recommendation when worth surfacing, scope limitation. | Material unknowns, failed or pending required conditions, required correction language, disguised blockers, wording that notes must be fixed before merge. | Reconfirm target and head, verify notes remain non-blocking, incorporate new blockers/gaps/notes, and recompute. |
 | `NOT MERGE READY` | At least one verified current blocker associated with the reviewed head or current repository state. | Repository, PR, reviewed current head, verified blockers with evidence and blocking reason, blocker-relevant validation/CI/review state, unrelated limitations or gaps, escalation state, focused correction direction when practical, scope limitation. | Speculative or preference-based blockers, unsupported failure claims, unrelated next-task prompts, implementation/merge execution, claims uninspected criteria passed. | Previous blockers must be re-verified; resolved blockers are removed only with current evidence; one current blocker remains decisive. |
-| `UNABLE TO VERIFY` | Target-state integrity cannot be established, or no verified current blocker exists and at least one material verification gap remains after bounded recovery. | Established repository/PR identity if any, target identity that could not be established when applicable, current head when established, material gaps, recovery/access state, known validation/CI/review state, re-verification need when known, scope limitation. | Merge approval language, blocker claims without verified failure evidence, hidden target ambiguity, claims unavailable evidence is satisfied, indefinite polling. | Refresh target/head and missing evidence; prior gaps remain historical until current evidence resolves or replaces them. |
+| `UNABLE TO VERIFY` | Established repository and PR target, with current PR/change-state integrity not fully established; or target-state integrity established, no verified current blocker, and at least one material verification gap remains after bounded recovery. | Established repository and PR, current head when established, exact current target-state property that could not be established, material gaps, recovery/access state, known validation/CI/review state, re-verification need when known, scope limitation. | Merge approval language, blocker claims without verified failure evidence, hidden target ambiguity, claims unavailable evidence is satisfied, indefinite polling. | Refresh target/head and missing evidence; prior gaps remain historical until current evidence resolves or replaces them. |
 
 ## 16. Deferred specification
 
