@@ -19,9 +19,9 @@ This record evaluates whether package-draft implementation may be recommended. I
 | Layer | Gate treatment | Result |
 | --- | --- | --- |
 | Specification conformance | Reviewed now against repository docs at the baseline commit. | PASS |
-| Observed ChatGPT product behavior | Existing experiments may inform constraints only. Existing observations do not prove production-package behavior. | NOT APPLICABLE to package runtime |
-| Tool and connector capability | Connector capability does not equal Skill correctness. Current capability remains a later runtime/evaluation question unless already documented. | NOT APPLICABLE to package runtime |
-| Repository static validation | Static validation may check repository hygiene and links. Repository validation does not equal runtime evaluation. | PASS when validation passes |
+| Observed ChatGPT product behavior | Existing experiments may inform constraints only; they do not prove production-package behavior, and package runtime evaluation is deferred until an exact package exists. | NOT APPLICABLE |
+| Tool and connector capability | Connector capability does not equal Skill correctness; current capability remains a later runtime/evaluation question unless already documented. | NOT APPLICABLE |
+| Repository static validation | Static validation checks repository hygiene and links; repository validation does not equal runtime evaluation. Repository validation has passed for the current PR head. | PASS |
 
 Package runtime behavior cannot be evaluated without an exact package. Deferred runtime assertions are not reported as passed.
 
