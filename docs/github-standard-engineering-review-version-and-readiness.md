@@ -34,26 +34,26 @@ This document records the first exact package draft after implementation; it doe
 | --- | --- | --- | --- |
 | Specification coverage | All 13 specification areas are reviewed and linked. | `docs/github-standard-engineering-review-scope.md` links the specification sequence, this document records version/readiness status, and the [pre-package gate review](github-standard-engineering-review-pre-package-gate-review.md) reviews all 13 areas. | Keep later package work traced to this baseline or a later reviewed replacement. |
 | Package-structure specification | Exact package tree is documented and implemented as a draft. | `docs/github-standard-engineering-review-package-structure.md` defines the proposed tree, and `skills/github-standard-engineering-review/` now contains the corresponding draft. | Keep package changes traced to reviewed specifications. |
-| Pre-package gate review | Gate result `PASS`; package-draft recommendation is bounded and owner authorization for Issue #66 is granted. | [Pre-package gate review](github-standard-engineering-review-pre-package-gate-review.md) records specification conformance, 22-case disposition, prerequisites, observation boundaries, and a specification regression baseline. | Open a later package-draft Issue only after explicit owner approval. |
+| Pre-package gate review | Gate result `PASS`; package-draft recommendation is bounded, Issue #66 is authorized, and the package draft is currently under review. | [Pre-package gate review](github-standard-engineering-review-pre-package-gate-review.md) records specification conformance, 22-case disposition, prerequisites, observation boundaries, and a specification regression baseline. | Complete review of this package-draft PR before later package-acceptance or readiness work. |
 | Package implementation | Implemented as first exact draft. | Current tree has `skills/github-standard-engineering-review/` with one root `SKILL.md` and six supporting files. Reviewed PR head identifies the draft during review; final merge identity is pending until merge. | Validate and review the exact draft before any later package-acceptance or readiness work. |
 | `SKILL.md` | Implemented for the draft package. | Current tree has one production-target `skills/github-standard-engineering-review/SKILL.md`. | Keep one root `SKILL.md` and do not add version metadata until separately authorized. |
 | Supporting files | Implemented for the draft package. | Current tree has six production-target supporting files under `skills/github-standard-engineering-review/reference/`. | Supporting-file accessibility remains a later runtime claim. |
-| Package version | `UNASSIGNED`. | No production package exists, and this document forbids assigning a version here. | Select a first package version in package implementation or later readiness work. |
+| Package version | `UNASSIGNED`. | Version selection is deferred for later explicit work; this package-draft PR does not assign a version. | Select a first package version in later version/readiness work. |
 | Static package validation | Observed locally passing for the draft package. | `python3 scripts/validate_repository.py` passed during Issue #66 implementation. | Static validation remains separate from runtime validation and package acceptance. |
-| Installation | Not validated. | No production package exists to install. | Test installation separately against the exact package. |
-| Invocation | Not validated. | No production package exists to invoke. | Test invocation separately against the exact package and recorded product surface. |
-| Exact package acceptance | Not tested. | No exact production package artifact exists. | Test package acceptance separately from supporting-file access. |
+| Installation | Not validated. | The first exact package draft exists at the reviewed PR head, but installation has not been tested. | Test installation separately against the exact package. |
+| Invocation | Not validated. | The first exact package draft exists at the reviewed PR head, but invocation has not been tested. | Test invocation separately against the exact package and recorded product surface. |
+| Exact package acceptance | Not tested. | The first exact package draft exists at the reviewed PR head, but package acceptance has not been tested. | Test package acceptance separately from supporting-file access. |
 | Supporting-file accessibility | Not established for the production package. | Supporting-file spike observations concern an experimental package, not `github-standard-engineering-review`. | Evaluate supporting-file access against the exact production package as a separate claim. |
 | Internal loading mechanism | `UNKNOWN`. | Existing spikes preserve internal loading mechanics as unknown, and this Issue adds no runtime observation. | Keep mechanism unknown unless separately observed and reproduced with adequate evidence. |
-| Selected smoke cases against exact package | Not executed. | No exact production package exists. | Run selected smoke cases after package acceptance and file-access checks. |
-| Full minimum suite against exact package | Not executed. | Evaluation plan exists, but no exact production package exists and no full suite has run against one. | Run the full minimum suite against the exact package. |
-| Regression baseline against exact package | Not recorded. | No exact production package exists. | Record baseline after full-suite evaluation against a known package identity. |
+| Selected smoke cases against exact package | Not executed. | The first exact package draft exists at the reviewed PR head, but selected smoke cases have not been run. | Run selected smoke cases after package acceptance and file-access checks. |
+| Full minimum suite against exact package | Not executed. | Evaluation plan exists, but no full suite has run against the reviewed package draft. | Run the full minimum suite against the exact package. |
+| Regression baseline against exact package | Not recorded. | The first exact package draft exists at the reviewed PR head, but no runtime regression baseline has been recorded. | Record baseline after full-suite evaluation against a known package identity. |
 | Connector limitations | Separate from Skill logic. | Evaluation plan requires connector limitations to remain distinct from Skill failures. | Record connector limitations in evaluation records without converting them into Skill success or failure. |
-| Publication/distribution | Not performed. | No package, archive, tag, release, installation, publication, or distribution artifact exists from this Issue. | Decide and perform publication/distribution only in later explicit work. |
+| Publication/distribution | Not performed. | No archive, tag, release, publication, or distribution artifact is produced by this package-draft PR. | Decide and perform publication/distribution only in later explicit work. |
 | Production readiness | `NOT ESTABLISHED`. | Required package, version, validation, evaluation, limitation, and owner-decision evidence is absent. | Complete readiness rule evidence and owner approval. |
 | Owner readiness decision | Not occurred. | No owner approval for production readiness is recorded in the repository. | Owner must explicitly approve readiness after reviewing exact package and evidence. |
 
-Absent package evidence must be reported as not implemented, not tested, not validated, not established, or unknown. It must not be reported as failed runtime behavior.
+Absent runtime, acceptance, installation, invocation, supporting-file-access, evaluation, publication, distribution, version, or readiness evidence must be reported as not tested, not validated, not established, deferred, or unknown as applicable. It must not be reported as failed runtime behavior.
 
 ## Readiness progression
 
@@ -80,8 +80,8 @@ No transition may be inferred from repository validation alone. Owner approval i
 
 ## Version assignment policy
 
-- No package version is assigned before an actual package draft exists.
-- The first package version is selected in package implementation or later readiness work.
+- No package version is assigned by this package-draft PR.
+- The first package version is selected in later explicit version/readiness work.
 - Do not choose `0.1.0`, `v0.3.0`, or another package version in this document.
 - Version syntax and metadata follow verified platform requirements when known.
 - Until verified package-version work occurs, the package version remains `UNASSIGNED`.
@@ -189,7 +189,7 @@ Do not:
 - treat smoke cases as the full suite;
 - hide `PARTIAL`, `INCONCLUSIVE`, or unknown outcomes;
 - automatically carry readiness forward to changed package content;
-- create a package, publish, tag, or release in this Issue; or
+- publish, tag, release, distribute, or declare readiness in this Issue; or
 - mix Deep Review readiness into Standard Review readiness.
 
 ## Quality checklist
