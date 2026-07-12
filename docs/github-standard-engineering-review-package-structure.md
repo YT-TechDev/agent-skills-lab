@@ -205,18 +205,32 @@ These checks are expectations only and are not implemented by this document.
 
 ## 12. Packaging prerequisites
 
-Before implementation or promotion, the evaluation-plan promotion gate requires:
+### Before initial package implementation
 
-- complete specification conformance review;
-- minimum golden-case suite coverage;
-- no unresolved critical `FAIL` in trigger, verdict, blocker, false-blocker, unsupported-claim, scope-boundary, or output dimensions;
-- material `INCONCLUSIVE` or `PARTIAL` results documented;
-- dated observations where platform behavior matters;
-- connector limitations separated from Skill logic;
-- supporting-file package behavior tested separately; and
-- no readiness claim from docs alone.
+Before creating the first package draft:
 
-This document does not declare these prerequisites satisfied.
+- complete the specification conformance review;
+- execute the required pre-package cases or explicitly justify any case that cannot yet be executed;
+- have no unresolved critical `FAIL` in trigger precision, verdict selection, blocker detection, false-blocker avoidance, unsupported claims, scope boundary, or output-contract compliance;
+- document every material `PARTIAL` or `INCONCLUSIVE` result and its next experiment;
+- record dated observations where product behavior matters;
+- document connector limitations separately from Skill logic; and
+- record the initial regression baseline.
+
+These prerequisites do not require exact-package acceptance or supporting-file-access testing before the package draft exists.
+
+### After the package draft exists, before promotion or readiness
+
+Before promoting the package or declaring readiness:
+
+- test exact package acceptance;
+- test supporting-file access as a separate claim;
+- run the full minimum promotion suite defined by the evaluation plan against the exact package;
+- record package-specific failures, limitations, and unknowns;
+- confirm that static package validation is not treated as runtime evidence; and
+- confirm that documentation alone is not treated as production-readiness evidence.
+
+This Issue does not declare either stage satisfied.
 
 ## 13. Version and change control
 
@@ -224,18 +238,19 @@ Version and status live in `SKILL.md` or verified package metadata. The initial 
 
 ## 14. Implementation sequence
 
-1. Satisfy or explicitly resolve evaluation prerequisites.
-2. Implement the exact proposed tree in a separate Issue/PR.
-3. Derive content from reviewed specifications.
-4. Run static validation.
+1. Satisfy or explicitly resolve the pre-implementation prerequisites.
+2. Implement the exact proposed tree in a separate Issue and PR.
+3. Derive package content from reviewed specifications.
+4. Run static package validation.
 5. Test exact package acceptance.
 6. Test supporting-file access separately.
-7. Run selected golden cases.
-8. Record dated observations and failures.
-9. Refine before a readiness decision.
-10. Decide version and readiness separately.
+7. Run a selected golden-case subset only as an early smoke test.
+8. Record and correct package-specific failures and unknowns.
+9. Run the full minimum promotion suite required by the evaluation plan.
+10. Record dated observations and regression results.
+11. Decide version and production readiness in a separate Issue.
 
-This sequence is a plan only.
+The selected subset in step 7 does not replace the full minimum suite in step 9. This sequence is a plan only.
 
 ## 15. Anti-patterns
 
