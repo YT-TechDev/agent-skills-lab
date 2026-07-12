@@ -29,7 +29,7 @@ Immediately after the verdict heading, include a compact reviewed target block w
 - base ref;
 - head ref;
 - reviewed head SHA or equivalent identity; and
-- review mode: initial review or same-PR re-review.
+- review mode: `initial` or `same-PR re-review`.
 
 For `UNABLE TO VERIFY` when current PR or change-state integrity cannot be established, include the exact unresolved target-state property. Omit that field when target-state integrity is established and `UNABLE TO VERIFY` results only from a material verification gap.
 
@@ -41,7 +41,7 @@ For `UNABLE TO VERIFY` when current PR or change-state integrity cannot be estab
 - `### Non-blocking notes`: include only for genuine non-blocking notes; required for `MERGE READY WITH NON-BLOCKING NOTES`.
 - `### Validation and review state`: required for all readiness verdicts.
 - `### Coverage and access limitations`: required when limitations exist; disclose material and relevant immaterial limits.
-- `### Escalation`: required when Standard Review identifies material need for Deep Review or specialist review.
+- `### Escalation`: required when required Deep Review or specialist approval affects the verdict, or when an optional Deep Review recommendation is surfaced as a genuine non-blocking note.
 - `### Focused correction direction`: required for `NOT MERGE READY`; do not include next-Issue work while blockers remain.
 - `### Re-verification requirement`: required for `UNABLE TO VERIFY`; identify the smallest evidence, access, target-state, or repository-state change needed for another review when known.
 - `### Re-review delta`: optional when materially useful for same-PR re-review; it never replaces full current-scope evaluation.
@@ -50,11 +50,11 @@ For `UNABLE TO VERIFY` when current PR or change-state integrity cannot be estab
 
 `MERGE READY` requires the verdict heading, reviewed target block, concise summary, validation and review state, and Standard Review scope boundary. It may include coverage/access limitations only when immaterial limitations exist. It must not include `### Blocking findings`, `### Material verification gaps`, `### Non-blocking notes`, required correction language, or required pre-merge work.
 
-`MERGE READY WITH NON-BLOCKING NOTES` requires the verdict heading, reviewed target block, concise summary, `### Non-blocking notes`, validation and review state, and Standard Review scope boundary. It must not include blockers, material verification gaps, required correction language, or wording that notes must be fixed before merge.
+`MERGE READY WITH NON-BLOCKING NOTES` requires the verdict heading, reviewed target block, concise summary, `### Non-blocking notes`, validation and review state, and Standard Review scope boundary. It also requires `### Escalation` when an optional escalation recommendation is surfaced as a genuine non-blocking note. It must not include blockers, material verification gaps, required correction language, or wording that notes must be fixed before merge.
 
-`NOT MERGE READY` requires the verdict heading, reviewed target block, concise summary, `### Blocking findings`, validation and review state, focused correction direction when practical, and Standard Review scope boundary. It must include `### Material verification gaps` when material gaps also exist. It must not include speculative blockers, unsupported failure claims, unrelated next-task prompts, implementation claims, merge execution, or claims that uninspected criteria passed.
+`NOT MERGE READY` requires the verdict heading, reviewed target block, concise summary, `### Blocking findings`, validation and review state, `### Focused correction direction`, and Standard Review scope boundary. Validation or re-check details in the correction direction may remain conditional when practical. It must include `### Material verification gaps` when material gaps also exist. It must not include speculative blockers, unsupported failure claims, unrelated next-task prompts, implementation claims, merge execution, or claims that uninspected criteria passed.
 
-`UNABLE TO VERIFY` requires the verdict heading, reviewed target block, concise limitation-led summary, `### Material verification gaps`, validation and review state, `### Re-verification requirement`, and Standard Review scope boundary. When current PR or change-state integrity cannot be established, the reviewed target block must name the unresolved target-state property. It must not include merge approval language, blocker claims without verified failure evidence, hidden target ambiguity, claims unavailable evidence is satisfied, or indefinite polling.
+`UNABLE TO VERIFY` requires the verdict heading, reviewed target block, concise limitation-led summary, `### Material verification gaps`, known `### Validation and review state`, `### Coverage and access limitations`, `### Escalation` when material, `### Re-verification requirement`, and Standard Review scope boundary. When current PR or change-state integrity cannot be established, the reviewed target block must name the unresolved target-state property. It must not include merge approval language, blocker claims without verified failure evidence, hidden target ambiguity, claims unavailable evidence is satisfied, or indefinite polling.
 
 ## Verdict-specific obligations
 
