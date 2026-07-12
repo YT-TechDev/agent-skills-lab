@@ -80,8 +80,8 @@ No transition may be inferred from repository validation alone. Owner approval i
 
 ## Version assignment policy
 
-- No package version is assigned by this package-draft PR.
-- The first package version is selected in later explicit version/readiness work.
+- No package version is assigned before an actual package draft exists.
+- The first package version is selected in package implementation or later readiness work.
 - Do not choose `0.1.0`, `v0.3.0`, or another package version in this document.
 - Version syntax and metadata follow verified platform requirements when known.
 - Until verified package-version work occurs, the package version remains `UNASSIGNED`.
