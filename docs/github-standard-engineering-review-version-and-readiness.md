@@ -8,12 +8,12 @@
 - Skill package version: `UNASSIGNED`
 - specification status: foundation specified through package structure
 - production package: first exact draft implemented
-- installation and invocation: not validated
+- installation and invocation: one selected missing-target clarification run observed
 - production readiness: `NOT ESTABLISHED`
 
 This document defines milestone/package version boundaries, version assignment, version impact, current readiness, readiness progression, transition evidence, owner decision requirements, observation/reproduction rules, and completion of the current specification sequence.
 
-This document records the first exact package draft after implementation; it does not select a version, validate runtime behavior, execute evaluations, publish, release, close the milestone, or declare readiness.
+This document records the first exact package draft after implementation and the first bounded owner-side package-handling and selected clarification observation; it does not select a version, complete runtime evaluation, publish, release, close the milestone, or declare readiness.
 
 ## Core distinctions
 
@@ -34,23 +34,23 @@ This document records the first exact package draft after implementation; it doe
 | --- | --- | --- | --- |
 | Specification coverage | All 13 specification areas are reviewed and linked. | `docs/github-standard-engineering-review-scope.md` links the specification sequence, this document records version/readiness status, and the [pre-package gate review](github-standard-engineering-review-pre-package-gate-review.md) reviews all 13 areas. | Keep later package work traced to this baseline or a later reviewed replacement. |
 | Package-structure specification | Exact package tree is documented and implemented as a draft. | `docs/github-standard-engineering-review-package-structure.md` defines the proposed tree, and `skills/github-standard-engineering-review/` now contains the corresponding draft. | Keep package changes traced to reviewed specifications. |
-| Pre-package gate review | Gate result `PASS`; package-draft recommendation is bounded, Issue #66 is authorized, and the package draft is currently under review. | [Pre-package gate review](github-standard-engineering-review-pre-package-gate-review.md) records specification conformance, 22-case disposition, prerequisites, observation boundaries, and a specification regression baseline. | Complete review of this package-draft PR before later package-acceptance or readiness work. |
-| Package implementation | Implemented as first exact draft. | Current tree has `skills/github-standard-engineering-review/` with one root `SKILL.md` and six supporting files. Reviewed PR head identifies the draft during review; final merge identity is pending until merge. | Validate and review the exact draft before any later package-acceptance or readiness work. |
+| Pre-package gate review | Gate result `PASS`; package-draft recommendation is bounded, Issue #66 is authorized, and the package draft was merged in PR #67. | [Pre-package gate review](github-standard-engineering-review-pre-package-gate-review.md) records specification conformance, 22-case disposition, prerequisites, observation boundaries, and a specification regression baseline. | Keep later readiness work traced to the merged package identity and bounded observation evidence. |
+| Package implementation | Implemented as first exact draft. | Current tree has `skills/github-standard-engineering-review/` with one root `SKILL.md` and six supporting files. PR #67 is merged; Issue #66 is completed; the first exact package draft is merged with exact merged package identity `7c8278cc1bca1286290fdbacd610fe9d97b1fe81`. | Keep package changes traced to reviewed specifications and this exact merged identity. |
 | `SKILL.md` | Implemented for the draft package. | Current tree has one production-target `skills/github-standard-engineering-review/SKILL.md`. | Keep one root `SKILL.md` and do not add version metadata until separately authorized. |
 | Supporting files | Implemented for the draft package. | Current tree has six production-target supporting files under `skills/github-standard-engineering-review/reference/`. | Supporting-file accessibility remains a later runtime claim. |
 | Package version | `UNASSIGNED`. | Version selection is deferred for later explicit work; this package-draft PR does not assign a version. | Select a first package version in later version/readiness work. |
 | Static package validation | Observed locally passing for the draft package. | `python3 scripts/validate_repository.py` passed during Issue #66 implementation. | Static validation remains separate from runtime validation and package acceptance. |
-| Installation | Not validated. | The first exact package draft exists at the reviewed PR head, but installation has not been tested. | Test installation separately against the exact package. |
-| Invocation | Not validated. | The first exact package draft exists at the reviewed PR head, but invocation has not been tested. | Test invocation separately against the exact package and recorded product surface. |
-| Exact package acceptance | Not tested. | The first exact package draft exists at the reviewed PR head, but package acceptance has not been tested. | Test package acceptance separately from supporting-file access. |
-| Supporting-file accessibility | Not established for the production package. | Supporting-file spike observations concern an experimental package, not `github-standard-engineering-review`. | Evaluate supporting-file access against the exact production package as a separate claim. |
-| Internal loading mechanism | `UNKNOWN`. | Existing spikes preserve internal loading mechanics as unknown, and this Issue adds no runtime observation. | Keep mechanism unknown unless separately observed and reproduced with adequate evidence. |
-| Selected smoke cases against exact package | Not executed. | The first exact package draft exists at the reviewed PR head, but selected smoke cases have not been run. | Run selected smoke cases after package acceptance and file-access checks. |
+| Installation | One owner-side upload of the exact archive was accepted on ChatGPT Web. | [First owner-side observation](observations/2026-07-13-github-standard-engineering-review-first-owner-run.md) records the exact locally prepared seven-source-file archive submitted and accepted once; the Skill appeared installed and explicitly selectable. Classification: `accepted without visible transformation`; result label: `Observed`, not reproduced. | Reproduce under comparable conditions before broader validation; post-upload exact seven-file representation was not directly inspectable. |
+| Invocation | One explicitly selected clarification run observed. | [First owner-side observation](observations/2026-07-13-github-standard-engineering-review-first-owner-run.md) records that the exact missing-target prompt produced literal `NO VERDICT` and clarification behavior matched expected entry behavior. Result label: `Observed`, not `Reproduced`. | No live GitHub review or connector capability was tested. |
+| Exact package acceptance | Owner-facing acceptance observed once. | The exact locally prepared seven-source-file archive was submitted and accepted on ChatGPT Web; classification: `accepted without visible transformation`; post-upload per-file retention/inspectability is not fully established. | Reproduce acceptance separately; keep package acceptance separate from supporting-file accessibility. |
+| Supporting-file accessibility | `NOT ESTABLISHED` for the production package. | Supporting-file spike observations concern an experimental package, not `github-standard-engineering-review`; Case B could be satisfied from root `SKILL.md`, so it does not test supporting guidance. | Evaluate supporting-file access against the exact production package as a separate claim. |
+| Internal loading mechanism | `UNKNOWN`. | Existing spikes preserve internal loading mechanics as unknown; Issue #68 records no internal loading evidence. | Keep mechanism unknown unless separately observed and reproduced with adequate evidence. |
+| Selected smoke cases against exact package | One selected clarification smoke run: `PASS` / `Observed`. | The first owner-side observation records a selected missing-target clarification run. Positive, blocker, material-gap, unstable-head, re-review, and live-PR cases were not executed. | Run remaining selected smoke cases as separately scoped work. |
 | Full minimum suite against exact package | Not executed. | Evaluation plan exists, but no full suite has run against the reviewed package draft. | Run the full minimum suite against the exact package. |
 | Regression baseline against exact package | Not recorded. | The first exact package draft exists at the reviewed PR head, but no runtime regression baseline has been recorded. | Record baseline after full-suite evaluation against a known package identity. |
 | Connector limitations | Separate from Skill logic. | Evaluation plan requires connector limitations to remain distinct from Skill failures. | Record connector limitations in evaluation records without converting them into Skill success or failure. |
 | Publication/distribution | Not performed. | No archive, tag, release, publication, or distribution artifact is produced by this package-draft PR. | Decide and perform publication/distribution only in later explicit work. |
-| Production readiness | `NOT ESTABLISHED`. | The first exact package draft exists at the reviewed PR head, and static package validation is observed passing. Final merged artifact identity remains pending until merge; package version is `UNASSIGNED`; package acceptance, supporting-file access, invocation, smoke cases, full-suite evaluation, and runtime regression evidence remain absent; known-limitations/readiness review remains incomplete; owner production-readiness approval has not occurred. | Complete readiness rule evidence and owner approval. |
+| Production readiness | `NOT ESTABLISHED`. | The first exact package draft is merged at `7c8278cc1bca1286290fdbacd610fe9d97b1fe81`; static package validation was observed passing during Issue #66; one owner-facing package acceptance and one selected clarification smoke run are `Observed`. Package version is `UNASSIGNED`; supporting-file access, full-suite evaluation, runtime regression baseline, known-limitations/readiness review, and owner production-readiness approval remain absent. | Complete readiness rule evidence and owner approval. |
 | Owner readiness decision | Not occurred. | No owner approval for production readiness is recorded in the repository. | Owner must explicitly approve readiness after reviewing exact package and evidence. |
 
 Absent runtime, acceptance, installation, invocation, supporting-file-access, evaluation, publication, distribution, version, or readiness evidence must be reported as not tested, not validated, not established, deferred, or unknown as applicable. It must not be reported as failed runtime behavior.
@@ -65,7 +65,7 @@ Absent runtime, acceptance, installation, invocation, supporting-file-access, ev
 | 4. Readiness candidate | Collect complete evidence for owner readiness review. | Full minimum promotion suite completed against the exact package; regression baseline recorded; no unresolved critical evaluation failure; all material `PARTIAL` and `INCONCLUSIVE` outcomes disclosed; connector limitations separated from Skill logic; package version candidate selected in a separate Issue; installation/publication plan separately reviewed when applicable. | One exact package identity and version; complete reviewed readiness evidence; known limitations and unknowns disclosed; applicable installation/publication state recorded; no unresolved readiness blocker; explicit owner approval. | Do not self-declare production ready, hide limitations, or carry forward old readiness to changed content. Owner approval must not replace missing material evidence or silently erase readiness limitations. | Repository owner. |
 | 5. Production ready | Identify one exact package/version as ready under disclosed limits. | One exact package identity and version; complete reviewed readiness evidence; known limitations and unknowns disclosed; applicable installation/publication state recorded; no unresolved readiness blocker; explicit owner approval. | Later changed package content requires renewed impact review and may require renewed evaluation. | Do not imply readiness for other package trees, future changes, Deep Review, or undisclosed environments. | Repository owner for continued readiness and regression decisions. |
 
-The current repository has not reached Production ready. The current work permits package planning only after the baseline is merged and reviewed.
+The current repository has not reached Production ready. The repository remains in Package draft state; Issue #68 observation evidence does not establish an Evaluation candidate transition.
 
 ## Transition evidence matrix
 
@@ -118,7 +118,7 @@ Use these observation labels for product behavior and evaluation records:
 - `Unverified`
 - `Changed since previous test`
 
-Product observations record date, timezone, product surface, exact tree, invocation, and result. First success is `Observed`, not `Reproduced`. Reproduction requires another recorded run under materially comparable conditions. Package acceptance and supporting-file access are separate observations. File use does not identify loading mechanics. Internal loading remains `UNKNOWN` unless separately established by adequate evidence. Platform changes do not silently rewrite specifications. Connector limitations remain separate from Skill logic. This Issue adds no runtime observations.
+Product observations record date, timezone, product surface, exact tree, invocation, and result. First success is `Observed`, not `Reproduced`. Reproduction requires another recorded run under materially comparable conditions. Package acceptance and supporting-file access are separate observations. File use does not identify loading mechanics. Internal loading remains `UNKNOWN` unless separately established by adequate evidence. Platform changes do not silently rewrite specifications. Connector limitations remain separate from Skill logic. Issue #68 adds one selected clarification runtime observation, labeled `Observed`; it is not `Reproduced` and does not establish supporting-file accessibility.
 
 ## Production-readiness rule
 
@@ -149,14 +149,20 @@ No single check is sufficient. Documentation and repository CI are necessary but
 - Package draft: implemented
 - One root `SKILL.md`: implemented
 - Six supporting files: implemented
-- Reviewed PR head identifies the draft during review; final merge identity is pending until merge
+- PR #67 is merged; Issue #66 is completed
+- First exact package draft: merged
+- Exact merged package identity: `7c8278cc1bca1286290fdbacd610fe9d97b1fe81`
+- Final merge identity: no longer pending
 - Package version: `UNASSIGNED`
 - Static package validation: observed locally passing with `python3 scripts/validate_repository.py` during Issue #66 implementation
-- Installation/invocation: not validated
-- Exact package acceptance: not tested
+- Installation/package handling: one owner-side exact archive upload accepted on ChatGPT Web; classification `accepted without visible transformation`; result `Observed`, not reproduced; post-upload exact seven-file representation was not directly inspectable
+- Invocation: one explicitly selected missing-target clarification run observed; exact prompt produced literal `NO VERDICT`; result `Observed`, not `Reproduced`; no live GitHub review or connector capability tested
+- Exact package acceptance: owner-facing acceptance observed once; package acceptance is not supporting-file accessibility
 - Supporting-file accessibility: not established
 - Internal supporting-file loading mechanism: `UNKNOWN`
-- Selected smoke cases/full suite: not executed
+- Selected smoke cases: one selected clarification smoke run `PASS` / `Observed`; positive, blocker, material-gap, unstable-head, re-review, and live-PR cases not executed
+- Full minimum suite: not executed
+- Evaluation candidate transition: not established
 - Runtime regression baseline: not recorded
 - Publication/distribution: not performed
 - Production readiness: `NOT ESTABLISHED`
