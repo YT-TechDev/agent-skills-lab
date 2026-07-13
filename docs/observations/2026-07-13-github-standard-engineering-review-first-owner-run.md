@@ -24,20 +24,19 @@ Evidence boundary:
 
 ## Status summary
 
-| Area | Evaluation status | Product-research label | Reproduction |
-| --- | --- | --- | --- |
-| Case A package handling | `PASS` | `Observed` | not established |
-| Case A classification | `accepted without visible transformation` | `Observed` | not established |
-| Case B selected Skill invocation | `PASS` | `Observed` | not established |
-| Case B trigger precision | `PASS` | `Observed` | not established |
-| Case B target clarification | `PASS` | `Observed` | not established |
-| Case B unsupported-claim avoidance | `PASS` | `Observed` | not established |
-| Case B output restraint | `PASS` | `Observed` | not established |
-| GitHub connector capability | `NOT APPLICABLE` | `Unverified` | not established |
-| Supporting-file accessibility | `NOT ESTABLISHED` | `Unverified` | not established |
-| Internal supporting-file loading mechanism | `UNKNOWN` | `Unverified` | not established |
-| Package version | `UNASSIGNED` | `Unverified` | not established |
-| Production readiness | `NOT ESTABLISHED` | `Unverified` | not established |
+| Area | Current result/state | Evaluation status | Product-research label | Reproduction |
+| --- | --- | --- | --- | --- |
+| Case A package handling | `accepted without visible transformation` | PASS | Observed | not established |
+| Case B selected Skill invocation | explicitly selected and responded with clarification | PASS | Observed | not established |
+| Case B trigger precision | missing-target request handled as clarification | PASS | Observed | not established |
+| Case B target clarification | requested only PR URL or repository name and PR number | PASS | Observed | not established |
+| Case B unsupported-claim avoidance | no repository, diff, CI, review, connector, implementation, merge, or Deep Review claim | PASS | Observed | not established |
+| Case B output restraint | literal `NO VERDICT` with bounded clarification | PASS | Observed | not established |
+| GitHub connector capability | not exercised | NOT APPLICABLE | Unverified | not established |
+| Supporting-file accessibility | `NOT ESTABLISHED` | NOT APPLICABLE | Unverified | not established |
+| Internal supporting-file loading mechanism | `UNKNOWN` | NOT APPLICABLE | Unverified | not established |
+| Package version | `UNASSIGNED` | NOT APPLICABLE | Unverified | not established |
+| Production readiness | `NOT ESTABLISHED` | NOT APPLICABLE | Unverified | not established |
 
 Evaluation statuses are separate from product-research labels.
 
@@ -206,15 +205,15 @@ Interpretation boundary:
 
 ## Expected-versus-observed comparison
 
-| Case | Expected boundary | Observed evidence | Evaluation status | Product-research label |
-| --- | --- | --- | --- | --- |
-| Case A package handling | Record exact archive acceptance without treating acceptance as runtime proof. | Exact archive was submitted and owner-facing upload/list surfaces showed successful acceptance and selectable installation. | `PASS` | `Observed` |
-| Case A classification | Classify visible package handling without inferring hidden internals. | `accepted without visible transformation`; post-upload seven-file representation was not directly inspectable. | `PASS` | `Observed` |
-| Case B missing target | Explicitly selected Skill should pause when no PR target is supplied. | Exact prompt produced literal `NO VERDICT` and requested only a PR URL or repository name and PR number. | `PASS` | `Observed` |
-| GitHub connector capability | Do not evaluate connector capability without a target or connector exercise. | No live GitHub PR review or connector capability was tested. | `NOT APPLICABLE` | `Unverified` |
-| Supporting-file accessibility | Keep package acceptance separate from supporting-file access. | Case B could be satisfied from root `SKILL.md`; supporting-file accessibility remains `NOT ESTABLISHED`. | not evaluated | `Unverified` |
-| Internal loading mechanism | Do not infer internal loading behavior. | No internal mechanism was visible or independently verified. | not evaluated | `Unverified` |
-| Reproduction | First success must not be labeled `Reproduced`. | First success is `Observed`, not `Reproduced`. | not established | `Unverified` |
+| Case | Expected boundary | Observed evidence | Current result/state | Evaluation status | Product-research label |
+| --- | --- | --- | --- | --- | --- |
+| Case A package handling | Record exact archive acceptance without treating acceptance as runtime proof. | Exact archive was submitted and owner-facing upload/list surfaces showed successful acceptance and selectable installation. | `accepted without visible transformation` | PASS | Observed |
+| Case A classification | Classify visible package handling without inferring hidden internals. | `accepted without visible transformation`; post-upload seven-file representation was not directly inspectable. | bounded visible classification only | PASS | Observed |
+| Case B missing target | Explicitly selected Skill should pause when no PR target is supplied. | Exact prompt produced literal `NO VERDICT` and requested only a PR URL or repository name and PR number. | bounded clarification response | PASS | Observed |
+| GitHub connector capability | Do not evaluate connector capability without a target or connector exercise. | No live GitHub PR review or connector capability was tested. | not exercised | NOT APPLICABLE | Unverified |
+| Supporting-file accessibility | Keep package acceptance separate from supporting-file access. | Case B could be satisfied from root `SKILL.md`; supporting-file accessibility remains `NOT ESTABLISHED`. | `NOT ESTABLISHED` | NOT APPLICABLE | Unverified |
+| Internal loading mechanism | Do not infer internal loading behavior. | No internal mechanism was visible or independently verified. | `UNKNOWN` | NOT APPLICABLE | Unverified |
+| Reproduction | First success must not be labeled `Reproduced`. | First success is `Observed`, not `Reproduced`. | not established | NOT APPLICABLE | Unverified |
 
 ## Verified facts
 

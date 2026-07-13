@@ -8,7 +8,8 @@
 - Skill package version: `UNASSIGNED`
 - specification status: foundation specified through package structure
 - production package: first exact draft implemented
-- installation and invocation: one selected missing-target clarification run observed
+- installation/package handling: one exact archive upload accepted on ChatGPT Web; `Observed`, not `Reproduced`
+- invocation: one explicitly selected missing-target clarification run observed; `Observed`, not `Reproduced`
 - production readiness: `NOT ESTABLISHED`
 
 This document defines milestone/package version boundaries, version assignment, version impact, current readiness, readiness progression, transition evidence, owner decision requirements, observation/reproduction rules, and completion of the current specification sequence.
@@ -158,7 +159,7 @@ No single check is sufficient. Documentation and repository CI are necessary but
 - Installation/package handling: one owner-side exact archive upload accepted on ChatGPT Web; classification `accepted without visible transformation`; result `Observed`, not reproduced; post-upload exact seven-file representation was not directly inspectable
 - Invocation: one explicitly selected missing-target clarification run observed; exact prompt produced literal `NO VERDICT`; result `Observed`, not `Reproduced`; no live GitHub review or connector capability tested
 - Exact package acceptance: owner-facing acceptance observed once; package acceptance is not supporting-file accessibility
-- Supporting-file accessibility: not established
+- Supporting-file accessibility: `NOT ESTABLISHED`
 - Internal supporting-file loading mechanism: `UNKNOWN`
 - Selected smoke cases: one selected clarification smoke run `PASS` / `Observed`; positive, blocker, material-gap, unstable-head, re-review, and live-PR cases not executed
 - Full minimum suite: not executed
