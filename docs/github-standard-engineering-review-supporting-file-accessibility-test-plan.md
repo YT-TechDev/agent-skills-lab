@@ -72,16 +72,31 @@ The precommitted expected output is exactly one line:
 
 An exact-output `PASS` permits only that one line with exact capitalization and Markdown markers. No code fence, verdict, explanation, prefix, suffix, blank content line, or additional line is permitted.
 
+## Raw-output observability
+
+ChatGPT may render Markdown headings and visually suppress the literal heading markers. Rendered-output evidence alone cannot establish whether the final output contained the exact `###` prefix.
+
+The later owner-side execution must capture both:
+
+1. the rendered final response as shown by ChatGPT; and
+2. an unedited raw/plain-text representation of the complete final response.
+
+The raw/plain-text representation should be obtained using the product's response-copy operation when available. Paste the copied response directly, without modification, into a plain-text destination that does not render Markdown, such as a basic text editor. Do not normalize whitespace, add or remove characters, change capitalization, retype the response, or manually reconstruct Markdown markers. Do not paste or resend the copied response into ChatGPT or another model for verification.
+
+Record the capture method and any known transformation risk. Preserve the rendered and plain-text evidence privately for GPT review. Do not commit screenshots, copied response files, clipboard artifacts, exports, or other product-generated evidence to the repository.
+
+Copy/export behavior must not be used to infer model internals, hidden prompts, storage, parser behavior, or supporting-file loading mechanics. This protocol treats the copied text only as a raw/plain-text representation captured through the product copy operation, not as an internal raw model token stream or authoritative hidden source format.
+
 ## Classification policy
 
 Evaluation statuses remain separate from product-research labels.
 
-- `PASS`: full final output exactly matches the expected line.
-- `PARTIAL`: expected heading is identifiable, but formatting or extra final text violates the contract.
-- `FAIL`: a valid controlled run completes, but expected heading is absent or incorrect.
-- `INCONCLUSIVE`: installed identity, explicit selection, prompt integrity, environment integrity, or final output cannot be established reliably.
+- `PASS`: allowed only when the rendered final response contains no extra visible final-output content; the unedited raw/plain-text evidence contains exactly one line; that line exactly equals `### Re-verification requirement`; exact capitalization is preserved; all three `#` markers are present; no prefix, suffix, code fence, verdict, explanation, extra content line, or additional blank content line is present; and the raw capture method is sufficiently reliable to compare the exact string.
+- `PARTIAL`: allowed only when reliable raw/plain-text evidence exists and the expected heading is identifiable, but the exact-output contract is violated, including missing or altered Markdown markers, altered capitalization, extra explanation, prefix or suffix, additional final-output lines, surrounding code fence, or another directly observable formatting deviation. Do not use `PARTIAL` merely because the rendered UI hides Markdown markers.
+- `FAIL`: allowed only when the controlled run is otherwise valid, reliable raw/plain-text evidence exists, and the expected heading is absent or incorrect.
+- `INCONCLUSIVE`: required when installed identity, explicit selection, prompt integrity, environment integrity, or final output cannot be established reliably; only the rendered heading is available; literal Markdown markers cannot be verified; the product copy/export operation is unavailable; the copied representation may have transformed the output in a way that prevents exact comparison; the plain-text destination rendered or altered Markdown; the copied response was edited, retyped, normalized, or reconstructed; capture integrity is otherwise uncertain; or any existing identity, selection, prompt, environment, access, interruption, or evidence stop condition applies.
 
-Do not infer failure causes without evidence.
+Rendered heading evidence alone is not `PASS`. Rendered heading evidence alone is not `PARTIAL`. When marker observability is uncertain, classify `INCONCLUSIVE`. Do not infer failure causes without evidence.
 
 For research labels:
 
@@ -104,6 +119,10 @@ A future run requires:
 - Skill indicator visible when exposed;
 - GPT-5.6 Sol and high / `高` when available for comparability;
 - exact committed prompt;
+- an available product response-copy operation or other pre-authorized capture mechanism capable of preserving the complete final response;
+- a plain-text destination that does not render Markdown;
+- a plan to capture rendered and plain-text evidence from the same final response;
+- no transformation or manual reconstruction of copied output;
 - one final-output capture;
 - full sent prompt and final output visible where practical;
 - response-duration UI recorded separately;
@@ -123,6 +142,11 @@ Any model or reasoning deviation must be disclosed and its comparability classif
 - [ ] No equivalent hint.
 - [ ] No tool request.
 - [ ] Evidence capture ready.
+- [ ] Raw/plain-text capture method is available.
+- [ ] Plain-text destination does not render Markdown.
+- [ ] Rendered and plain-text evidence will come from the same final response.
+- [ ] Copied text will not be edited, normalized, retyped, or reconstructed.
+- [ ] Copied response will not be resent to ChatGPT or another model.
 
 ## Stop and retry policy
 
@@ -133,9 +157,14 @@ Classify the run as `INCONCLUSIVE` without answer-seeking retries when:
 - Project, attachment, URL, or tool is used;
 - prompt is altered or leaks the answer;
 - product, network, or permission failure blocks a reliable final output;
-- final output cannot be captured reliably.
+- final output cannot be captured reliably;
+- raw/plain-text capture is unavailable;
+- copy/export transformation cannot be ruled out enough for exact comparison;
+- the destination renders or modifies Markdown;
+- copied evidence was accidentally edited or reconstructed;
+- rendered and raw evidence cannot be tied to the same final response.
 
-One clean retry is allowed only for an obvious UI/input mistake before a valid response is produced. Never retry to obtain the expected answer.
+One clean retry is allowed only for an obvious UI/input/capture setup mistake before a valid assistant response is produced. Never retry because the captured answer did not match the oracle, and never retry to obtain the expected answer.
 
 ## Future evidence recording
 
@@ -150,6 +179,14 @@ A future evidence record must include:
 - explicit selection evidence;
 - exact prompt;
 - exact final output;
+- rendered final-output evidence;
+- raw/plain-text final-output evidence;
+- exact raw capture method;
+- plain-text destination type;
+- whether the copied representation was edited or transformed;
+- known capture-method limitations;
+- exact marker verification result;
+- whether rendered and raw evidence were confirmed to originate from the same final response;
 - transient progress UI separately;
 - evaluation status;
 - product-research label;
@@ -168,6 +205,8 @@ It must not establish:
 - whether every supporting file loaded;
 - eager, lazy, automatic, selective, or ordered loading;
 - parser, extraction, storage, relative-path, hidden-prompt, or prompt-construction behavior;
+- internal raw model output representation from any product copy operation;
+- hidden prompts, token streams, package storage, parser behavior, or supporting-file loading from copied text;
 - behavior in other models, workspaces, Projects, devices, or package versions;
 - unselected invocation;
 - live PR correctness;
@@ -177,7 +216,9 @@ It must not establish:
 - Evaluation candidate transition;
 - production readiness.
 
-Internal loading remains `UNKNOWN` regardless of outcome.
+A product copy operation does not prove the model's internal raw output representation. Copied text does not reveal hidden prompts, token streams, package storage, parser behavior, or supporting-file loading. Capture fidelity is only an evidence-quality condition for this exact-output test.
+
+Supporting-file accessibility remains `NOT ESTABLISHED`, internal loading remains `UNKNOWN`, package version remains `UNASSIGNED`, production readiness remains `NOT ESTABLISHED`, and repository state remains `Package draft` regardless of outcome.
 
 ## Explicit Issue #72 prohibition
 
@@ -194,6 +235,11 @@ Do not fabricate an output. Do not add a placeholder result. Do not update readi
 - [x] Classification policy committed.
 - [x] Environment and stop rules committed.
 - [x] Future evidence rules committed.
+- [x] Raw-output observability method committed.
+- [x] Rendered-only evidence classified as insufficient.
+- [x] Exact-marker verification rule committed.
+- [x] Capture-integrity stop conditions committed.
+- [x] No raw or rendered product evidence was produced during Issue #72.
 - [x] No execution occurred.
 - [x] No Skill package changes.
 - [x] Current unknown/readiness states preserved.
